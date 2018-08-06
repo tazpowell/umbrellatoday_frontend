@@ -1,2 +1,12 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  font-family: 'Comfortaa', cursive;
+}
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 80pt;
+}
