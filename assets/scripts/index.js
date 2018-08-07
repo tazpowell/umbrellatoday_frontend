@@ -15,6 +15,7 @@ $(() => {
 
   // locations
   $('#get-locations-btn').on('click', locEvents.onGetLocations)
+  $('#create-location-form').on('submit', locEvents.onCreateLocation)
 
   // forecats
   $('#check-bos-btn').on('click', fEvents.onGetBostonData)

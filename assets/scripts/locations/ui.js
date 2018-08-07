@@ -18,7 +18,17 @@ const getAllError = function (error) {
   console.log('getAllError error is ', error)
 }
 
+const createSuccess = function (response) {
+  console.log('createSuccess response is ', response)
+}
+
+const createError = function (error) {
+  console.log('createError error is ', error)
+}
+
 module.exports = {
   getAllSuccess,
-  getAllError
+  getAllError,
+  createSuccess,
+  createError
 }
