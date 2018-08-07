@@ -1,0 +1,9 @@
+{{#each locations as |location|}}
+  <tr class="location-row" data-id="{{location._id}}">
+      <td>{{location.name}}</td>
+      <td>{{location.lat}}</td>
+      <td>{{location.long}}</td>
+      <td>{{location.default}}</td>
+      <td><button type="button" class="btn-line clickable check-weather-btn">Check weather</td>
+  </tr>
+{{/each}}

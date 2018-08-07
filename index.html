@@ -16,6 +16,11 @@
         <h2><span class='answer'>YES</span><span class='answer'>NO</span></h2>
       </div>
 
+      <div>
+        <!-- CHECK BOSTON -->
+        <button id="check-bos-btn" type="button" class="btn btn-default">Check Boston</button>
+      </div>
+
       <!--full width alert container  -->
       <div class="full-width-alert-container"></div>
 
@@ -100,5 +105,23 @@
           <!-- GET LOCATIONS -->
           <button id="get-locations-btn" type="button" class="btn btn-default">Get Locations</button>
         </div>
+
+        <div id="location-list" class="location-list-container">
+          <h3>Locations</h3>
+          <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Default</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id='locations-table-body'>
+                </tbody>
+              </table>
+            </div>
+          </div>
     </body>
 </html>
