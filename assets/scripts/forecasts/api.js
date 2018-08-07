@@ -1,8 +1,8 @@
 'use strict'
 const config = require('../config.js')
 
-// GET BOSTON DATA
-const getBostonData = function () {
+// GET BOSTON FORECAST
+const getBostonForecast = function () {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/forecasts',
@@ -15,6 +15,16 @@ const getBostonData = function () {
   })
 }
 
+// GET ANY LOCATION FORECAST
+const getLocationForecast = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/forecasts',
+    data: data
+  })
+}
+
 module.exports = {
-  getBostonData
+  getBostonForecast,
+  getLocationForecast
 }

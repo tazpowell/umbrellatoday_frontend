@@ -1,16 +1,38 @@
 'use strict'
 const fApi = require('./api.js')
 const fUi = require('./ui.js')
+const store = require('../store')
 
-const onGetBostonData = function () {
-  console.log('onGetBostonData ran')
-  event.preventDefault()
+const onGetBostonForecast = function () {
+  console.log('onGetBostonForecast ran')
+  // event.preventDefault()
   // api
-  fApi.getBostonData()
+  fApi.getBostonForecast()
     .then(fUi.getBostonSuccess)
     .catch(fUi.getBostonError)
 }
 
+const onGetLocationForecast = function (event) {
+  console.log('onGetLocationForecast ran')
+  const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
+  console.log('locationID is ', locationID)
+  const data = {}
+  data.location = store.locations.find(x => x.id === locationID)
+  store.query = store.locations.find(x => x.id === locationID)
+  console.log('store.query is ', store.query)
+  // delete data.location.id
+  // delete data.location.name
+  // delete data.location.default
+  // delete data.location.user
+  console.log('onGetLocationForecast data is ', data)
+  // debugger
+  // api
+  fApi.getLocationForecast(data)
+    .then(fUi.getForecastSuccess)
+    .catch(fUi.getForecastError)
+}
+
 module.exports = {
-  onGetBostonData
+  onGetBostonForecast,
+  onGetLocationForecast
 }

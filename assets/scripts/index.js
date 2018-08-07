@@ -17,6 +17,9 @@ $(() => {
   $('#get-locations-btn').on('click', locEvents.onGetLocations)
   $('#create-location-form').on('submit', locEvents.onCreateLocation)
 
-  // forecats
-  $('#check-bos-btn').on('click', fEvents.onGetBostonData)
+  // individual location buttons
+  $('#location-list').on('click', '.check-weather-btn', fEvents.onGetLocationForecast)
+
+  // forecasts
+  $('#check-bos-btn').on('click', fEvents.onGetBostonForecast)
 })

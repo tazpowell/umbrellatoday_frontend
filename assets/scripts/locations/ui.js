@@ -1,4 +1,4 @@
-// const store = require('../store')
+const store = require('../store')
 const locationsTemplate = require('../templates/locations.handlebars')
 
 const createLocationTable = function (data) {
@@ -12,6 +12,8 @@ const createLocationTable = function (data) {
 const getAllSuccess = function (response) {
   console.log('getAllSuccess response is ', response)
   createLocationTable(response)
+  store.locations = response.locations
+  console.log('getAllSuccess store is ', store)
 }
 
 const getAllError = function (error) {
