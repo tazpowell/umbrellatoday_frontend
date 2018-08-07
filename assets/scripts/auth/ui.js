@@ -4,8 +4,8 @@ const authApi = require('./api.js')
 
 // Clear form fields
 const clearForms = function () {
-  $('.form-area input[type=email]').val('')
-  $('.form-area input[type=password]').val('')
+  $('.form-area input').val('')
+  // $('.form-area input[type=password]').val('')
 }
 
 // Clear messages under form fields
@@ -78,7 +78,9 @@ const signInSuccess = function (signInResponse) {
   $('.alert-sign-in-success').delay(3000).fadeOut()
   // $('.navbar-text').html('Signed in as ' + signInResponse.user.email)
   // $('.landing-intro').toggleClass('hide')
-  // $('.sign-in-sign-up-forms').toggleClass('hide')
+  $('.sign-in-sign-up-forms').toggleClass('hide')
+  $('.change-pw-sign-out').toggleClass('hide')
+  $('.location-modules').toggleClass('hide')
   // $('.navbar-default').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   clearForms()
@@ -127,7 +129,9 @@ const signOutSuccess = function () {
   clearForms()
   // $('.navbar-text').html('')
   // $('.landing-intro').toggleClass('hide')
-  // $('.sign-in-sign-up-forms').toggleClass('hide')
+  $('.sign-in-sign-up-forms').toggleClass('hide')
+  $('.change-pw-sign-out').toggleClass('hide')
+  $('.location-modules').toggleClass('hide')
   // $('.navbar-default').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   // $('body').addClass('gradient-bg')
