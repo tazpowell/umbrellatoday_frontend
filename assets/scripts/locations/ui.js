@@ -1,6 +1,11 @@
 const store = require('../store')
 const locationsTemplate = require('../templates/locations.handlebars')
 
+// Clear form fields
+const clearForms = function () {
+  $('.form-area input').val('')
+}
+
 const createLocationTable = function (data) {
   console.log('createLocationTable data is ', data)
   // generate a table row for each file using handlebars
@@ -21,10 +26,12 @@ const getAllError = function (error) {
 }
 
 const createSuccess = function (response) {
+  clearForms()
   console.log('createSuccess response is ', response)
 }
 
 const createError = function (error) {
+  clearForms()
   console.log('createError error is ', error)
 }
 
