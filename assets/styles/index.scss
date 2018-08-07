@@ -4,9 +4,30 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   font-family: 'Comfortaa', cursive;
+  text-align: center;
 }
 
 h1 {
   font-family: 'Comfortaa', cursive;
-  font-size: 80pt;
+  font-size: 70pt;
+  text-align: center;
+  vertical-align: middle;
+}
+
+h2 {
+  font-size: 48pt;
+  text-align: center;
+}
+
+.answer {
+  padding: 20px;
+}
+
+.nav-tabs {
+  // float: none
+  display: inline-block;
+}
+
+.sign-in-sign-up-forms {
+  display: inline-block;
 }
