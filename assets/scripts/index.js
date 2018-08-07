@@ -4,6 +4,7 @@
 // const example = require('./example')
 const authEvents = require('./auth/events')
 const locEvents = require('./locations/events')
+const fEvents = require('./forecasts/events')
 
 $(() => {
   // user auth forms/button
@@ -14,4 +15,7 @@ $(() => {
 
   // locations
   $('#get-locations-btn').on('click', locEvents.onGetLocations)
+
+  // forecats
+  $('#check-bos-btn').on('click', fEvents.onGetBostonData)
 })
