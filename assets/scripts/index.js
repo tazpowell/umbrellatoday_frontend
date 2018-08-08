@@ -18,6 +18,8 @@ $(() => {
   $('#create-location-form').on('submit', locEvents.onCreateLocation)
   $('#location-list').on('click', '.delete-btn', locEvents.onConfirmDeleteLocation)
   $('#deleteModal').on('click', '#confirm-delete-btn', locEvents.onDeleteLocation)
+  $('#location-list').on('click', '.update-btn', locEvents.onConfirmUpdateLocation)
+  $('#updateModal').on('click', '#confirm-update-btn', locEvents.onUpdateLocation)
 
   // forecasts
   $('#check-bos-btn').on('click', fEvents.onGetBostonForecast)

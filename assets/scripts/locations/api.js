@@ -36,8 +36,22 @@ const deleteLocation = function (id) {
   })
 }
 
+// UPDATE LOCATIONS
+const updateLocation = function (data) {
+  const id = store.update.location.id
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/locations/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   getLocations,
   createLocation,
-  deleteLocation
+  deleteLocation,
+  updateLocation
 }

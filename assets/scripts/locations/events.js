@@ -50,9 +50,39 @@ const onDeleteLocation = function () {
     .then(onGetLocations)
 }
 
+const onConfirmUpdateLocation = function () {
+  console.log('onConfirmUpdateLocation ran')
+  const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
+  const locationToUpdate = store.locations.find(x => x.id === locationID)
+  // console.log('locationID is ', locationID)
+  // console.log('store.update is ', store.update)
+  // console.log('locationToUpdate is ', locationToUpdate)
+  locUi.populateUpdateModal(locationToUpdate)
+}
+
+const onUpdateLocation = function () {
+  console.log('onUpdateLocation ran')
+  event.preventDefault()
+  const data = getFormFields(event.target.parentElement)
+  // debugger
+  if (!('default' in data.location)) {
+    data.location.default = false
+  } else {
+    data.location.default = true
+  }
+  // console.log('onUpdateLocation data is ', data)
+  // api
+  locApi.updateLocation(data, store.update)
+    .then(locUi.updateSuccess)
+    .catch(locUi.updateError)
+    .then(onGetLocations)
+}
+
 module.exports = {
   onGetLocations,
   onCreateLocation,
   onConfirmDeleteLocation,
-  onDeleteLocation
+  onDeleteLocation,
+  onConfirmUpdateLocation,
+  onUpdateLocation
 }

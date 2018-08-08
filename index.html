@@ -166,7 +166,7 @@
       </table>
     </div>
   </div>
-  <!-- Modal -->
+  <!-- DELETE Modal -->
   <div class="modal fade" id="deleteModal" role="dialog">
     <div class="modal-dialog">
 
@@ -183,6 +183,48 @@
       </div>
     </div>
   </div>
+
+  <!-- UPDATE Modal -->
+  <div class="modal fade" id="updateModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-update-text">Update location info</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-area">
+            <form id="update-location-form" class="">
+              <div class="form-group">
+                <label for="update-location-name">Location Name</label>
+                <input id="update-location-name" class="form-control" name="location[name]" type="text" placeholder="" required>
+              </div>
+              <div class="form-group">
+                <label for="update-location-lat">Latitude</label>
+                <input id="update-location-lat" class="form-control" name="location[lat]" type="text" placeholder="" required>
+              </div>
+              <div class="form-group">
+                <label for="update-location-long">Longitude</label>
+                <input id="update-location-long" class="form-control" name="location[long]" type="text" placeholder="" required>
+              </div>
+              <div class="checkbox">
+                <label><input id="update-location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
+              </div>
+
+              <button type="submit" class="btn btn-default" id="confirm-update-btn" data-dismiss="modal">Update</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </form>
+            <!-- create location form alert container  -->
+            <div class="update-location-alert-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></footer>
 </body>
 
