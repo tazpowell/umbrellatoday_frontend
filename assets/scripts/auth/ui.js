@@ -15,18 +15,6 @@ const clearAlerts = function () {
   $('.alert').html('')
 }
 
-// Create alerts
-// const showAlert = function (context, msgBold, msgText, fadeTime) {
-//   console.log('in ui.showAlert')
-//   $('#alert-zone').html(`<div class="alert alert-${context} alert-dismissible" role="alert">
-//     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-//     <strong><span="msg-bold">${msgBold}</span></strong> <span id="msgText">${msgText}</span>
-//   </div>`)
-//   if (fadeTime) {
-//     $(`#alert-zone .alert-${context}`).delay(fadeTime).fadeOut()
-//   }
-// }
-
 // PASSWORD do not match
 const pwNotMatching = function () {
   clearAlerts()
@@ -78,7 +66,6 @@ const signInSuccess = function (signInResponse) {
       'Sign in successful </div>')
   $('.alert-sign-in-success').delay(3000).fadeOut()
   // $('.navbar-text').html('Signed in as ' + signInResponse.user.email)
-  // $('.landing-intro').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
@@ -136,6 +123,7 @@ const signOutSuccess = function () {
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
+  $('#locations-table-body').html('')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   console.log('store after signOutSuccess is ', store)
 }

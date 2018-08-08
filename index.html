@@ -40,11 +40,11 @@
         <!-- SIGN IN -->
         <div class="form-area">
           <form id="sign-in-form" class="">
-            <div class="form-group">
+            <div class="form-group form-group-inline">
               <label for="email-signin">Email</label>
               <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-inline">
               <label for="pwd-signin">Password</label>
               <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
               <span id="sign-in-msg" class="ui-message"></span>
@@ -62,15 +62,15 @@
         <!-- SIGN UP -->
         <div class="form-area">
           <form id="sign-up-form" class="">
-            <div class="form-group">
+            <div class="form-group form-group-inline">
               <label for="email-signup">Email</label>
               <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-inline">
               <label for="pwd-signup">Password</label>
               <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
             </div>
-            <div class="form-group">
+            <div class="form-group form-group-inline">
               <label for="pwd-conf-signup">Confirm password</label>
               <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
               <span id="sign-up-msg" class="ui-message"></span>
@@ -91,11 +91,11 @@
   <div class="col-sm-12 change-pw-sign-out hide">
     <div class="form-area">
       <form id="change-pw-form" class="">
-        <div class="form-group">
+        <div class="form-group form-group-inline">
           <label for="old-pw-change">Old password</label>
           <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" required>
         </div>
-        <div class="form-group">
+        <div class="form-group form-group-inline">
           <label for="new-pw-change">New password</label>
           <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" required>
           <span id="change-pw-msg" class="ui-message"></span>
@@ -111,42 +111,48 @@
     <button id="sign-out-btn" type="button" class="btn btn-default">Sign Out</button>
   </div>
 
-  <div class="location-modules hide">
-    <!-- CREATE LOCATION -->
-    <div class="col-sm-12">
-      <div class="form-area">
-        <form id="create-location-form" class="">
-          <div class="form-group">
-            <label for="location-name">Location Name</label>
-            <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" required>
-          </div>
-          <div class="form-group">
-            <label for="location-lat">Latitude</label>
-            <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" required>
-          </div>
-          <div class="form-group">
-            <label for="location-long">Longitude</label>
-            <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" required>
-          </div>
-          <div class="checkbox">
+  <div class="col-sm-12 col-md-3 location-modules hide">
+    <!-- <div class="location-modules hide"> -->
+      <!-- CREATE LOCATION -->
+      <!-- <div class="col-sm-12"> -->
+        <div class="form-area">
+          <form id="create-location-form" class="">
+            <div class="form-group">
+              <label for="location-name">Location Name</label>
+              <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" required>
+            </div>
+            <div class="form-group">
+              <label for="location-lat">Latitude</label>
+              <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" required>
+            </div>
+            <div class="form-group">
+              <label for="location-long">Longitude</label>
+              <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" required>
+            </div>
+            <div class="checkbox">
 
-            <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
-          </div>
+              <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
+            </div>
 
-          <button type="submit" class="btn btn-default">Add</button>
-        </form>
-        <!-- create location form alert container  -->
-        <div class="add-location-alert-container"></div>
+            <button type="submit" class="btn btn-default">Add</button>
+          </form>
+          <!-- create location form alert container  -->
+          <div class="add-location-alert-container"></div>
+        </div>
+        <!-- end of form-area -->
+
+      <!-- </div> -->
+
+      <div>
+        <!-- GET LOCATIONS -->
+        <button id="get-locations-btn" type="button" class="btn btn-default">Get Locations</button>
       </div>
-      <!-- end of form-area -->
+
 
     </div>
-
-    <div>
-      <!-- GET LOCATIONS -->
-      <button id="get-locations-btn" type="button" class="btn btn-default">Get Locations</button>
-    </div>
-
+  <!-- </div> -->
+  <div class="col-sm-12 col-md-9 location-modules hide">
+    <!-- LOCATIONS LIST -->
     <div id="location-list" class="location-list-container">
       <h3>Locations</h3>
       <table class="table table-striped">
@@ -166,6 +172,7 @@
       </table>
     </div>
   </div>
+
   <!-- DELETE Modal -->
   <div class="modal fade" id="deleteModal" role="dialog">
     <div class="modal-dialog">
