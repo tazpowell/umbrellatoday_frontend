@@ -20,24 +20,11 @@ const checkPrecipProbability = function (data) {
   }
 }
 
-// display answer
-// const displayYesNo = function (response) {
-//   resetAnswer()
-//   if (response === true) {
-//     // if any return true, show YES
-//     console.log('answer should be yes')
-//     $('.answer-yes').removeClass('hide')
-//   } else {
-//     console.log('answer should be no')
-//     $('.answer-no').removeClass('hide')
-//   }
-// }
-
 const getBostonSuccess = function (response) {
+  resetAnswer()
   console.log('getBostonSuccess response is ', response)
   const weekArray = response.daily.data
   console.log('weekArray[0] is ', weekArray[0])
-  checkPrecipProbability(weekArray[0])
   // loop through weekArray
   // run checkPrecipProbability on each day
   if (checkPrecipProbability(weekArray[0])) {

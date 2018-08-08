@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const authApi = require('./api.js')
+const locEvents = require('../locations/events')
 
 // Clear form fields
 const clearForms = function () {
@@ -84,6 +85,7 @@ const signInSuccess = function (signInResponse) {
   // $('.navbar-default').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   clearForms()
+  locEvents.onGetLocations()
 }
 
 // SIGN IN error
@@ -126,16 +128,16 @@ const signOutSuccess = function () {
       'Signed out successfully. </div>')
   $('.alert-sign-out-success').delay(3000).fadeOut()
   delete store.user
+  delete store.locations
+  delete store.delete
+  delete store.query
   clearForms()
   // $('.navbar-text').html('')
-  // $('.landing-intro').toggleClass('hide')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
-  // $('.navbar-default').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
-  // $('body').addClass('gradient-bg')
-  // console.log('store is ', store)
+  console.log('store after signOutSuccess is ', store)
 }
 
 // SIGN OUT error
