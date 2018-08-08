@@ -6,7 +6,6 @@ const locEvents = require('../locations/events')
 // Clear form fields
 const clearForms = function () {
   $('.form-area input').val('')
-  // $('.form-area input[type=password]').val('')
 }
 
 // Clear messages under form fields
@@ -15,31 +14,41 @@ const clearAlerts = function () {
   $('.alert').html('')
 }
 
+// CREATE ALERT
+// location: full-width-alert-container
+// context: success, danger
+// msgBold: Success, Error
+// msgText: alert message to show
+// fadeTime: 3000
+const createAlert = function (location, context, msgBold, msgText, fadeTime) {
+  console.log('createAlert in locations/ui.js ran')
+  $(`${location}`).html(`<div class="alert alert-${context} role="alert">
+    <strong><span="msg-bold">${msgBold}</span></strong> <span id="msgText">${msgText}</span>
+  </div>`)
+  if (fadeTime) {
+    $(`${location} .alert-${context}`).delay(fadeTime).fadeOut()
+  }
+}
+
 // PASSWORD do not match
 const pwNotMatching = function () {
   clearAlerts()
-  $('.sign-up-alert-container').html('<div class="alert alert-danger alert-sign-up-error">' +
-      'Passwords do not match </div>')
-  $('.alert-sign-up-error').delay(3000).fadeOut()
+  // createAlert params: location, context, msgBold, msgText, fadeTime
+  createAlert('.sign-up-alert-container', 'danger', 'Error', 'Passwords do not match', 3000)
   clearForms()
 }
 
 // PASSWORD do not match
 const pwMatching = function () {
   clearAlerts()
-  $('.change-pw-alert-container').html('<div class="alert alert-danger alert-change-pw-error">' +
-      'New password must be different than old </div>')
-  $('.alert-change-pw-error').delay(3000).fadeOut()
+  createAlert('.full-width-alert-container', 'danger', 'Error', 'New password must be different than old', 3000)
   clearForms()
 }
 
 // SIGN UP error
 const signUpError = function () {
-  // console.log('signUpError ran')
   clearAlerts()
-  $('.sign-up-alert-container').html('<div class="alert alert-danger alert-sign-up-error">' +
-      'Sign up was unsuccessful </div>')
-  $('.alert-sign-up-error').delay(3000).fadeOut()
+  createAlert('.sign-up-alert-container', 'danger', 'Error', 'Sign up was unsuccessful', 3000)
   clearForms()
 }
 
@@ -62,14 +71,11 @@ const signUpSuccess = function (signUpResponse) {
 const signInSuccess = function (signInResponse) {
   clearAlerts()
   store.user = signInResponse.user
-  $('.full-width-alert-container').html('<div class="alert alert-success alert-sign-in-success">' +
-      'Sign in successful </div>')
-  $('.alert-sign-in-success').delay(3000).fadeOut()
-  // $('.navbar-text').html('Signed in as ' + signInResponse.user.email)
+  $('.navbar-text').html('Signed in as ' + signInResponse.user.email)
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
-  // $('.navbar-default').toggleClass('hide')
+  $('.navbar-default').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   clearForms()
   locEvents.onGetLocations()
@@ -78,52 +84,39 @@ const signInSuccess = function (signInResponse) {
 // SIGN IN error
 const signInError = function () {
   clearAlerts()
-  $('.sign-in-alert-container').html('<div class="alert alert-danger alert-sign-in-error">' +
-      'Sign in was unsuccessful </div>')
-  $('.alert-sign-in-error').delay(3000).fadeOut()
+  createAlert('.sign-in-alert-container', 'danger', 'Error', 'Sign in was unsuccessful', 3000)
   clearForms()
 }
 
 // Change PW success
 const changePWSuccess = function () {
   clearAlerts()
-  // console.log('password successfuly updated')
-  $('.full-width-alert-container').html('<div class="alert alert-success alert-change-pw-success">' +
-  '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
-      'Password was successfully updated for: ' + store.user.email +
-      '</div>')
-  $('.alert-change-pw-success').delay(3000).fadeOut()
+  createAlert('.full-width-alert-container', 'success', 'Success', `Password updated for: ${store.user.email}`, 3000)
   $('#change-pw-btn').dropdown('toggle')
   clearForms()
 }
 // Change PW error
 const changePWError = function () {
   clearAlerts()
-  $('.change-pw-alert-container').html('<div class="alert alert-danger alert-change-pw-error">' +
-      'Password change was unsuccessful </div>')
-  $('.alert-change-pw-error').delay(3000).fadeOut()
-  // $('.change-pw-alert-danger').html('Password change failed').toggleClass('hide').delay(3000).fadeOut()
+  createAlert('.full-width-alert-container', 'danger', 'Error', 'Password change was unsuccessful', 3000)
   clearForms()
 }
 
 // SIGN OUT success
 const signOutSuccess = function () {
   clearAlerts()
-  // console.log('sign out successful')
-  $('.full-width-alert-container').html('<div class="alert alert-success alert-sign-out-success full-width-alert">' +
-  '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
-      'Signed out successfully. </div>')
-  $('.alert-sign-out-success').delay(3000).fadeOut()
+  createAlert('.full-width-alert-container', 'success', '', 'Signed out successfully', 3000)
   delete store.user
   delete store.locations
   delete store.delete
   delete store.query
   clearForms()
-  // $('.navbar-text').html('')
+  $('.navbar-text').html('')
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
   $('#locations-table-body').html('')
+  $('.navbar-default').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   console.log('store after signOutSuccess is ', store)
 }
@@ -131,11 +124,7 @@ const signOutSuccess = function () {
 // SIGN OUT error
 const signOutError = function () {
   clearAlerts()
-  $('.full-width-alert-container').html('<div class="alert alert-danger alert-sign-out-error">' +
-  '<button type="button" class="close" aria-hidden="true" data-dismiss="alert">&times;</button>' +
-      'Failed to sign out. </div>')
-  $('.alert-sign-out-error').delay(3000).fadeOut()
-  // $('.alert-danger-full-width').html('Sign out failed').toggleClass('hide').delay(3000).fadeOut()
+  createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to sign out', 3000)
   clearForms()
 }
 

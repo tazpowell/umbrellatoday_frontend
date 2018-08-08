@@ -35,6 +35,7 @@ const onSignIn = function (event) {
 // on Change PW
 const onChangePW = function (event) {
   event.preventDefault()
+  $('.change-pw-dropdown').dropdown('toggle')
   const data = getFormFields(event.target)
   if (data.passwords.old !== data.passwords.new) {
   } else {
