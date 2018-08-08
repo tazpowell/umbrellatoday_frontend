@@ -35,9 +35,22 @@ const createError = function (error) {
   console.log('createError error is ', error)
 }
 
+const deleteSuccess = function () {
+  console.log('deleteSuccess ran')
+  $('.full-width-alert-container').html('<div class="alert alert-success alert-delete-success">' +
+      'Delete successful </div>')
+  $('.alert-delete-success').delay(3000).fadeOut()
+}
+
+const deleteError = function (error) {
+  console.log('deleteError error is ', error)
+}
+
 module.exports = {
   getAllSuccess,
   getAllError,
   createSuccess,
-  createError
+  createError,
+  deleteSuccess,
+  deleteError
 }

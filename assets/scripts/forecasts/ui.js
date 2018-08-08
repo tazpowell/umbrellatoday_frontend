@@ -13,9 +13,9 @@ const resetAnswer = function () {
 
 // check if precipProbability is 0.5 or greater
 const checkPrecipProbability = function (data) {
-  console.log('data inside checkPrecipProbability is ', data)
+  // console.log('data inside checkPrecipProbability is ', data)
+  console.log('data.precipProbablity is ', data.precipProbability)
   if (data.precipProbability >= 0.50) {
-    console.log('data.precipProbablity is ', data.precipProbability)
     return true
   }
 }

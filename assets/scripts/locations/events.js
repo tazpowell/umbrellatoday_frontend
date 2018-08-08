@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 const locApi = require('./api.js')
 const locUi = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
@@ -30,7 +31,28 @@ const onCreateLocation = function () {
     .then(onGetLocations)
 }
 
+const onConfirmDeleteLocation = function () {
+  console.log('onConfirmDeleteLocation ran')
+  const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
+  console.log('locationID is ', locationID)
+  store.delete = locationID
+  const locationToDelete = store.locations.find(x => x.id === locationID).name
+  console.log('locationToDelete is ', locationToDelete)
+  $('#modal-delete-text').text('Are you sure you want to delete ' + locationToDelete + '?')
+}
+
+const onDeleteLocation = function () {
+  console.log('onDeleteLocation ran')
+  // api
+  locApi.deleteLocation(store.delete)
+    .then(locUi.deleteSuccess)
+    .catch(locUi.deleteError)
+    .then(onGetLocations)
+}
+
 module.exports = {
   onGetLocations,
-  onCreateLocation
+  onCreateLocation,
+  onConfirmDeleteLocation,
+  onDeleteLocation
 }

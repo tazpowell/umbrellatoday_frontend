@@ -16,10 +16,10 @@ $(() => {
   // locations
   $('#get-locations-btn').on('click', locEvents.onGetLocations)
   $('#create-location-form').on('submit', locEvents.onCreateLocation)
-
-  // individual location buttons
-  $('#location-list').on('click', '.check-weather-btn', fEvents.onGetLocationForecast)
+  $('#location-list').on('click', '.delete-btn', locEvents.onConfirmDeleteLocation)
+  $('#deleteModal').on('click', '#confirm-delete-btn', locEvents.onDeleteLocation)
 
   // forecasts
   $('#check-bos-btn').on('click', fEvents.onGetBostonForecast)
+  $('#location-list').on('click', '.check-weather-btn', fEvents.onGetLocationForecast)
 })

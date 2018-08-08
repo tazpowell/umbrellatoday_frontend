@@ -1,161 +1,189 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Umbrella Today?</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Umbrella Today?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <div class='col-sm-12 title-content'>
-        <h1>Umbrella Today?</h1>
-        <h2><span class='answer answer-yes hide'>YES</span><span class='answer answer-no hide'>NO</span></h2>
-        <h3 class="answer-location"></h3>
-      </div>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <div>
-        <!-- CHECK BOSTON -->
-        <button id="check-bos-btn" type="button" class="btn btn-default">Check Boston</button>
-      </div>
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-      <!--full width alert container  -->
-      <div class="full-width-alert-container"></div>
+<body>
+  <div class='col-sm-12 title-content'>
+    <h1>Umbrella Today?</h1>
+    <h2><span class='answer answer-yes hide'>YES</span><span class='answer answer-no hide'>NO</span></h2>
+    <h3 class="answer-location"></h3>
+  </div>
 
-      <div class="sign-in-sign-up-forms col-sm-12">
-        <!-- tabs sign up sign in  -->
-          <ul id="nav-sign-up-in" class="nav nav-tabs nav-justified on-sign-in">
-            <li class="active"><a data-toggle="tab" href="#tabSignIn">Sign In</a></li>
-            <li><a data-toggle="tab" href="#tabSignUp">Sign Up</a></li>
-          </ul>
+  <div>
+    <!-- CHECK BOSTON -->
+    <button id="check-bos-btn" type="button" class="btn btn-default">Check Boston</button>
+  </div>
 
-          <div class="tab-content on-sign-in">
+  <!--full width alert container  -->
+  <div class="full-width-alert-container"></div>
 
-            <div id="tabSignIn" class="tab-pane fade in active">
-              <!-- SIGN IN -->
-              <div class="form-area">
-                <form id="sign-in-form" class="">
-                  <div class="form-group">
-                    <label for="email-signin">Email</label>
-                    <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="pwd-signin">Password</label>
-                    <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
-                    <span id="sign-in-msg" class="ui-message"></span>
-                  </div>
-                  <button type="submit" class="btn-line">Sign In</button>
-                </form>
-                <!-- sign in form alert container  -->
-                <div class="sign-in-alert-container"></div>
-              </div><!-- end of form-area -->
-            </div> <!-- end tabSignIn -->
+  <div class="sign-in-sign-up-forms col-sm-12">
+    <!-- tabs sign up sign in  -->
+    <ul id="nav-sign-up-in" class="nav nav-tabs nav-justified on-sign-in">
+      <li class="active"><a data-toggle="tab" href="#tabSignIn">Sign In</a></li>
+      <li><a data-toggle="tab" href="#tabSignUp">Sign Up</a></li>
+    </ul>
 
-            <div id="tabSignUp" class="tab-pane fade">
-              <!-- SIGN UP -->
-              <div class="form-area">
-                <form id="sign-up-form" class="">
-                  <div class="form-group">
-                    <label for="email-signup">Email</label>
-                    <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="pwd-signup">Password</label>
-                    <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="pwd-conf-signup">Confirm password</label>
-                    <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
-                    <span id="sign-up-msg" class="ui-message"></span>
-                  </div>
-                  <button type="submit" class="btn-line">Sign Up</button>
-                </form>
-                <!-- sign up form alert container  -->
-                <div class="sign-up-alert-container"></div>
-              </div> <!-- end of form-area -->
-            </div> <!-- end tabSignUp -->
-          </div><!-- end tab-content -->
-        </div> <!-- end of sign-in-sign-up-forms -->
+    <div class="tab-content on-sign-in">
 
-        <div class="col-sm-12 change-pw-sign-out hide">
-          <div class="form-area">
-            <form id="change-pw-form" class="">
-              <div class="form-group">
-                <label for="old-pw-change">Old password</label>
-                <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" required>
-              </div>
-              <div class="form-group">
-                <label for="new-pw-change">New password</label>
-                <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" required>
-                <span id="change-pw-msg" class="ui-message"></span>
-              </div>
-              <button type="submit" class="btn btn-default">Change Password</button>
-            </form>
-            <!-- change pw form alert container  -->
-            <div class="change-pw-alert-container"></div>
-          </div><!-- end of form-area -->
-
-          <!-- SIGN OUT -->
-          <button id="sign-out-btn" type="button" class="btn btn-default">Sign Out</button>
-        </div>
-
-<div class="location-modules hide">
-        <!-- CREATE LOCATION -->
-        <div class="col-sm-12">
-          <div class="form-area">
-            <form id="create-location-form" class="">
-              <div class="form-group">
-                <label for="location-name">Location Name</label>
-                <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" required>
-              </div>
-              <div class="form-group">
-                <label for="location-lat">Latitude</label>
-                <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" required>
-              </div>
-              <div class="form-group">
-                <label for="location-long">Longitude</label>
-                <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" required>
-              </div>
-              <div class="checkbox">
-
-                  <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
-              </div>
-
-              <button type="submit" class="btn btn-default">Add</button>
-            </form>
-            <!-- create location form alert container  -->
-            <div class="add-location-alert-container"></div>
-          </div><!-- end of form-area -->
-
-        </div>
-
-        <div>
-          <!-- GET LOCATIONS -->
-          <button id="get-locations-btn" type="button" class="btn btn-default">Get Locations</button>
-        </div>
-
-        <div id="location-list" class="location-list-container">
-          <h3>Locations</h3>
-          <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                    <th>Default</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id='locations-table-body'>
-                </tbody>
-              </table>
+      <div id="tabSignIn" class="tab-pane fade in active">
+        <!-- SIGN IN -->
+        <div class="form-area">
+          <form id="sign-in-form" class="">
+            <div class="form-group">
+              <label for="email-signin">Email</label>
+              <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
             </div>
+            <div class="form-group">
+              <label for="pwd-signin">Password</label>
+              <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+              <span id="sign-in-msg" class="ui-message"></span>
+            </div>
+            <button type="submit" class="btn-line">Sign In</button>
+          </form>
+          <!-- sign in form alert container  -->
+          <div class="sign-in-alert-container"></div>
+        </div>
+        <!-- end of form-area -->
+      </div>
+      <!-- end tabSignIn -->
+
+      <div id="tabSignUp" class="tab-pane fade">
+        <!-- SIGN UP -->
+        <div class="form-area">
+          <form id="sign-up-form" class="">
+            <div class="form-group">
+              <label for="email-signup">Email</label>
+              <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd-signup">Password</label>
+              <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd-conf-signup">Confirm password</label>
+              <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
+              <span id="sign-up-msg" class="ui-message"></span>
+            </div>
+            <button type="submit" class="btn-line">Sign Up</button>
+          </form>
+          <!-- sign up form alert container  -->
+          <div class="sign-up-alert-container"></div>
+        </div>
+        <!-- end of form-area -->
+      </div>
+      <!-- end tabSignUp -->
+    </div>
+    <!-- end tab-content -->
+  </div>
+  <!-- end of sign-in-sign-up-forms -->
+
+  <div class="col-sm-12 change-pw-sign-out hide">
+    <div class="form-area">
+      <form id="change-pw-form" class="">
+        <div class="form-group">
+          <label for="old-pw-change">Old password</label>
+          <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" required>
+        </div>
+        <div class="form-group">
+          <label for="new-pw-change">New password</label>
+          <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" required>
+          <span id="change-pw-msg" class="ui-message"></span>
+        </div>
+        <button type="submit" class="btn btn-default">Change Password</button>
+      </form>
+      <!-- change pw form alert container  -->
+      <div class="change-pw-alert-container"></div>
+    </div>
+    <!-- end of form-area -->
+
+    <!-- SIGN OUT -->
+    <button id="sign-out-btn" type="button" class="btn btn-default">Sign Out</button>
+  </div>
+
+  <div class="location-modules hide">
+    <!-- CREATE LOCATION -->
+    <div class="col-sm-12">
+      <div class="form-area">
+        <form id="create-location-form" class="">
+          <div class="form-group">
+            <label for="location-name">Location Name</label>
+            <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" required>
           </div>
-          <footer><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></footer>
-    </body>
+          <div class="form-group">
+            <label for="location-lat">Latitude</label>
+            <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" required>
+          </div>
+          <div class="form-group">
+            <label for="location-long">Longitude</label>
+            <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" required>
+          </div>
+          <div class="checkbox">
+
+            <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
+          </div>
+
+          <button type="submit" class="btn btn-default">Add</button>
+        </form>
+        <!-- create location form alert container  -->
+        <div class="add-location-alert-container"></div>
+      </div>
+      <!-- end of form-area -->
+
+    </div>
+
+    <div>
+      <!-- GET LOCATIONS -->
+      <button id="get-locations-btn" type="button" class="btn btn-default">Get Locations</button>
+    </div>
+
+    <div id="location-list" class="location-list-container">
+      <h3>Locations</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Default</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id='locations-table-body'>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-delete-text"></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id='confirm-delete-btn'>Delete</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></footer>
+</body>
+
 </html>

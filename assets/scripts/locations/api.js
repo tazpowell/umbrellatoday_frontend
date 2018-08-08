@@ -25,7 +25,19 @@ const createLocation = function (data) {
   })
 }
 
+// DELETE LOCATIONS
+const deleteLocation = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/locations/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getLocations,
-  createLocation
+  createLocation,
+  deleteLocation
 }
