@@ -75,8 +75,8 @@ const signInSuccess = function (signInResponse) {
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
-  $('.navbar-default').toggleClass('hide')
-  // $('.full-width-alert-container').toggleClass('landing-view-only')
+  $('.change-pw-dropdown').toggleClass('hide')
+  $('.nav-sign-out-btn').toggleClass('hide')
   clearForms()
   locEvents.onGetLocations()
 }
@@ -116,7 +116,8 @@ const signOutSuccess = function () {
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
   $('#locations-table-body').html('')
-  $('.navbar-default').toggleClass('hide')
+  $('.change-pw-dropdown').toggleClass('hide')
+  $('.nav-sign-out-btn').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   console.log('store after signOutSuccess is ', store)
 }
