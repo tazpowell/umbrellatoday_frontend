@@ -96,6 +96,8 @@ const signOutSuccess = function () {
   delete store.locations
   delete store.delete
   delete store.query
+  delete store.credentials
+  delete store.update
   clearForms()
   $('.navbar-text').html('')
   $('.sign-in-sign-up-forms').toggleClass('hide')
@@ -104,8 +106,7 @@ const signOutSuccess = function () {
   $('#locations-table-body').html('')
   $('.nav-form-item-dropdown').toggleClass('hide')
   $('.nav-sign-out-btn').toggleClass('hide')
-  // $('.full-width-alert-container').toggleClass('landing-view-only')
-  console.log('store after signOutSuccess is ', store)
+  // console.log('store after signOutSuccess is ', store)
 }
 
 // SIGN OUT error

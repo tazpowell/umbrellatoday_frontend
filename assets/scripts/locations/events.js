@@ -7,11 +7,11 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const validateFormData = function (data) {
   return new Promise((resolve, reject) => {
     if (!$.isNumeric(data.location.lat)) {
-      console.log('lat is not a number')
+      // console.log('lat is not a number')
       const error = 'Latitude value is not valid'
       reject(error)
     } else if (!$.isNumeric(data.location.long)) {
-      console.log('long is not a number')
+      // console.log('long is not a number')
       const error = 'Longitude value is not valid'
       reject(error)
     }
@@ -23,7 +23,7 @@ const validateFormData = function (data) {
 }
 
 const onGetLocations = function () {
-  console.log('onGetLocations ran')
+  // console.log('onGetLocations ran')
   // api
   locApi.getLocations()
     .then(locUi.getAllSuccess)
@@ -31,7 +31,7 @@ const onGetLocations = function () {
 }
 
 const onCreateLocation = function () {
-  console.log('onCreateLocation ran')
+  // console.log('onCreateLocation ran')
   event.preventDefault()
   const data = getFormFields(event.target)
   // if (!('default' in data.location)) {
@@ -47,17 +47,17 @@ const onCreateLocation = function () {
 }
 
 const onConfirmDeleteLocation = function () {
-  console.log('onConfirmDeleteLocation ran')
+  // console.log('onConfirmDeleteLocation ran')
   const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
-  console.log('locationID is ', locationID)
+  // console.log('locationID is ', locationID)
   store.delete = locationID
   const locationToDelete = store.locations.find(x => x.id === locationID).name
-  console.log('locationToDelete is ', locationToDelete)
+  // console.log('locationToDelete is ', locationToDelete)
   $('#modal-delete-text').text('Are you sure you want to delete ' + locationToDelete + '?')
 }
 
 const onDeleteLocation = function () {
-  console.log('onDeleteLocation ran')
+  // console.log('onDeleteLocation ran')
   // api
   locApi.deleteLocation(store.delete)
     .then(locUi.deleteSuccess)
@@ -66,14 +66,14 @@ const onDeleteLocation = function () {
 }
 
 const onConfirmUpdateLocation = function () {
-  console.log('onConfirmUpdateLocation ran')
+  // console.log('onConfirmUpdateLocation ran')
   const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
   const locationToUpdate = store.locations.find(x => x.id === locationID)
   locUi.populateUpdateModal(locationToUpdate)
 }
 
 const onUpdateLocation = function () {
-  console.log('onUpdateLocation ran')
+  // console.log('onUpdateLocation ran')
   event.preventDefault()
   const data = getFormFields(event.target.parentElement)
   // if (!('default' in data.location)) {

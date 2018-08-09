@@ -21,7 +21,7 @@ const clearUpdateModal = function () {
 // msgText: alert message to show
 // fadeTime: 3000
 const createAlert = function (location, context, msgBold, msgText, fadeTime) {
-  console.log('createAlert in locations/ui.js ran')
+  // console.log('createAlert in locations/ui.js ran')
   $(`${location}`).html(`<div class="alert alert-${context} role="alert">
     <strong><span="msg-bold">${msgBold}</span></strong> <span id="msgText">${msgText}</span>
   </div>`)
@@ -31,7 +31,7 @@ const createAlert = function (location, context, msgBold, msgText, fadeTime) {
 }
 
 const createLocationTable = function (data) {
-  console.log('createLocationTable data is ', data)
+  // console.log('createLocationTable data is ', data)
   // generate a table row for each file using handlebars
   const locationsHtml = locationsTemplate({ locations: data.locations })
   // add the generated table rows inside the table body element
@@ -39,40 +39,37 @@ const createLocationTable = function (data) {
 }
 
 const getAllSuccess = function (response) {
-  console.log('getAllSuccess response is ', response)
+  // console.log('getAllSuccess response is ', response)
   createLocationTable(response)
   store.locations = response.locations
-  console.log('getAllSuccess store is ', store)
+  // console.log('getAllSuccess store is ', store)
 }
 
-const getAllError = function (error) {
-  console.log('getAllError error is ', error)
+const getAllError = function () {
+  // console.log('getAllError error is ', error)
   createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to get locations', 3000)
 }
 
 const createSuccess = function (response) {
   clearForms()
-  console.log('createSuccess response is ', response)
+  // console.log('createSuccess response is ', response)
 }
 
 const createError = function (error) {
   clearForms()
-  console.log('createError error is ', error)
+  // console.log('createError error is ', error)
   // createAlert params: location, context, msgBold, msgText, fadeTime
   createAlert('.full-width-alert-container', 'danger', 'Error', error, 3000)
 }
 
 const deleteSuccess = function () {
-  console.log('deleteSuccess ran')
+  // console.log('deleteSuccess ran')
   // createAlert params: location, context, msgBold, msgText, fadeTime
   createAlert('.full-width-alert-container', 'success', '', 'Delete successful', 3000)
-  // $('.full-width-alert-container').html('<div class="alert alert-success alert-delete-success">' +
-  //     'Delete successful </div>')
-  // $('.alert-delete-success').delay(3000).fadeOut()
 }
 
-const deleteError = function (error) {
-  console.log('deleteError error is ', error)
+const deleteError = function () {
+  // console.log('deleteError error is ', error)
   createAlert('.full-width-alert-container', 'danger', 'Error', 'Delete unsuccessful', 3000)
 }
 
@@ -95,7 +92,7 @@ const updateSuccess = function () {
 
 const updateError = function (error) {
   clearUpdateModal()
-  console.log('updateError error is ', error)
+  // console.log('updateError error is ', error)
   // createAlert params: location, context, msgBold, msgText, fadeTime
   createAlert('.full-width-alert-container', 'danger', 'Error', error, 3000)
 }
