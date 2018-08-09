@@ -22,6 +22,7 @@ $(() => {
   $('#location-list').on('click', '.update-btn', locEvents.onConfirmUpdateLocation)
   $('#updateModal').on('click', '#confirm-update-btn', locEvents.onUpdateLocation)
   $('#find-by-name-form').on('submit', coorEvents.onFindByName)
+  $('#find-by-latlong-form').on('submit', fEvents.onFindByLatLong)
 
   // forecasts
   $('#check-bos-btn').on('click', fEvents.onGetBostonForecast)

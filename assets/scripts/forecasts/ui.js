@@ -1,6 +1,27 @@
 'use strict'
 const store = require('../store')
 
+// Clear form fields
+const clearForms = function () {
+  $('.form-area input').val('')
+}
+
+// create full width alert
+// location: full-width-alert-container
+// context: success, danger
+// msgBold: Success, Error
+// msgText: alert message to show
+// fadeTime: 3000
+const createAlert = function (location, context, msgBold, msgText, fadeTime) {
+  console.log('createAlert in locations/ui.js ran')
+  $(`${location}`).html(`<div class="alert alert-${context} role="alert">
+    <strong><span="msg-bold">${msgBold}</span></strong> <span id="msgText">${msgText}</span>
+  </div>`)
+  if (fadeTime) {
+    $(`${location} .alert-${context}`).delay(fadeTime).fadeOut()
+  }
+}
+
 // reset answer
 const resetAnswer = function () {
   console.log('resetAnswer ran')
@@ -11,11 +32,6 @@ const resetAnswer = function () {
   } else if (!$('.title-content').hasClass('title-bg-null')) {
     $('.title-content').addClass('title-bg-null')
   }
-  // if (!$('.answer-yes').hasClass('hide')) {
-  //   $('.answer-yes').addClass('hide')
-  // } else if (!$('.answer-no').hasClass('hide')) {
-  //   $('.answer-no').addClass('hide')
-  // }
 }
 
 // check if precipProbability is 0.5 or greater
@@ -52,10 +68,12 @@ const getBostonSuccess = function (response) {
 
 const getBostonError = function (error) {
   console.log('getBostonError error is ', error)
+  createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to get Boston forecast', 3000)
 }
 
 const getForecastSuccess = function (response) {
   resetAnswer()
+  clearForms()
   $('.answer-location').html('In ' + store.query.name)
   $('.answer-stat').html('Precipitation probability is ' + response.daily.data[0].precipProbability)
   const weekArray = response.daily.data
@@ -74,6 +92,7 @@ const getForecastSuccess = function (response) {
 
 const getForecastError = function (error) {
   console.log('getForecastError error is ', error)
+  createAlert('.full-width-alert-container', 'danger', 'Error', error, 3000)
 }
 
 module.exports = {

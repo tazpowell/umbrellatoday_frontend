@@ -1,11 +1,12 @@
 'use strict'
 const fApi = require('./api.js')
 const fUi = require('./ui.js')
+const locEvents = require('../locations/events.js')
 const store = require('../store')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetBostonForecast = function () {
   console.log('onGetBostonForecast ran')
-  // event.preventDefault()
   // api
   fApi.getBostonForecast()
     .then(fUi.getBostonSuccess)
@@ -27,7 +28,25 @@ const onGetLocationForecast = function (event) {
     .catch(fUi.getForecastError)
 }
 
+const onFindByLatLong = function () {
+  console.log('onFindByLatLong ran')
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('onFindByLatLong data is ', data)
+  locEvents.validateFormData(data)
+    // .then((data) => { console.log('data is ', data) })
+    .then(() => {
+      store.query = {}
+      store.query.name = `${data.location.lat}, ${data.location.long}`
+      return data
+    })
+    .then(fApi.getLocationForecast)
+    .then(fUi.getForecastSuccess)
+    .catch(fUi.getForecastError)
+}
+
 module.exports = {
   onGetBostonForecast,
-  onGetLocationForecast
+  onGetLocationForecast,
+  onFindByLatLong
 }

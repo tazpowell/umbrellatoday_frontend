@@ -94,5 +94,6 @@ module.exports = {
   onConfirmDeleteLocation,
   onDeleteLocation,
   onConfirmUpdateLocation,
-  onUpdateLocation
+  onUpdateLocation,
+  validateFormData
 }
