@@ -4,11 +4,18 @@ const store = require('../store')
 // reset answer
 const resetAnswer = function () {
   console.log('resetAnswer ran')
-  if (!$('.answer-yes').hasClass('hide')) {
-    $('.answer-yes').addClass('hide')
-  } else if (!$('.answer-no').hasClass('hide')) {
-    $('.answer-no').addClass('hide')
+  if ($('.title-content').hasClass('title-bg-yes')) {
+    $('.title-content').removeClass('title-bg-yes')
+  } else if ($('.title-content').hasClass('title-bg-no')) {
+    $('.title-content').removeClass('title-bg-no')
+  } else if (!$('.title-content').hasClass('title-bg-null')) {
+    $('.title-content').addClass('title-bg-null')
   }
+  // if (!$('.answer-yes').hasClass('hide')) {
+  //   $('.answer-yes').addClass('hide')
+  // } else if (!$('.answer-no').hasClass('hide')) {
+  //   $('.answer-no').addClass('hide')
+  // }
 }
 
 // check if precipProbability is 0.5 or greater
@@ -30,10 +37,14 @@ const getBostonSuccess = function (response) {
   if (checkPrecipProbability(weekArray[0])) {
     // if any return true, show YES
     console.log('answer should be yes')
-    $('.answer-yes').removeClass('hide')
+    // $('.answer-yes').removeClass('hide')
+    $('.title-content').removeClass('title-bg-null')
+    $('.title-content').addClass('title-bg-yes')
   } else {
     console.log('answer should be no')
-    $('.answer-no').removeClass('hide')
+    // $('.answer-no').removeClass('hide')
+    $('.title-content').removeClass('title-bg-null')
+    $('.title-content').addClass('title-bg-no')
   }
 }
 
@@ -51,9 +62,11 @@ const getForecastSuccess = function (response) {
   // run checkPrecipProbability on each day
   if (checkPrecipProbability(weekArray[0])) {
     // if any return true, show YES
-    $('.answer-yes').removeClass('hide')
+    $('.title-content').removeClass('title-bg-null')
+    $('.title-content').addClass('title-bg-yes')
   } else {
-    $('.answer-no').removeClass('hide')
+    $('.title-content').removeClass('title-bg-null')
+    $('.title-content').addClass('title-bg-no')
   }
 }
 

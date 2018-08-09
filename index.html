@@ -52,15 +52,16 @@
     </div>
   </nav>
 
-  <div class='col-sm-12 title-content'>
-    <h1>Umbrella Today?</h1>
-    <h2><span class='answer answer-yes hide'>YES</span><span class='answer answer-no hide'>NO</span></h2>
-    <h3 class="answer-location"></h3>
+  <div class='col-sm-12 title-content title-bg-null'>
+    <!-- <h1>Umbrella Today?</h1> -->
+    <!-- <h2><span class='answer answer-yes hide'>YES</span><span class='answer answer-no hide'>NO</span></h2> -->
   </div>
+
+  <div><h3 class="answer-location"></h3></div>
 
   <div>
     <!-- CHECK BOSTON -->
-    <button id="check-bos-btn" type="button" class="btn btn-default">Check Boston</button>
+    <button id="check-bos-btn" type="button" class="btn btn-default btn-line">Check Boston</button>
   </div>
 
   <!--full width alert container  -->
@@ -154,7 +155,7 @@
               <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
             </div>
 
-            <button type="submit" class="btn btn-default">Add</button>
+            <button type="submit" class="btn btn-default btn-line">Add</button>
           </form>
           <!-- create location form alert container  -->
           <div class="add-location-alert-container"></div>
@@ -200,8 +201,8 @@
           <h4 class="modal-title" id="modal-delete-text"></h4>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" id='confirm-delete-btn'>Delete</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-default btn-line" data-dismiss="modal" id='confirm-delete-btn'>Delete</button>
+          <button type="button" class="btn btn-default btn-line" data-dismiss="modal">Cancel</button>
         </div>
       </div>
     </div>
@@ -237,8 +238,8 @@
                 <label><input id="update-location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
               </div>
 
-              <button type="submit" class="btn btn-default" id="confirm-update-btn" data-dismiss="modal">Update</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-default btn-line" id="confirm-update-btn" data-dismiss="modal">Update</button>
+              <button type="button" class="btn btn-default btn-line" data-dismiss="modal">Cancel</button>
             </form>
             <!-- create location form alert container  -->
             <div class="update-location-alert-container"></div>
@@ -248,7 +249,7 @@
     </div>
   </div>
 
-  <footer><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></footer>
+  <footer class="col-sm-12"><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></footer>
 </body>
 
 </html>
