@@ -41,8 +41,8 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right navbar-signout-changepw">
-          <li class="dropdown change-pw-dropdown hide">
-            <a href="#" class="dropdown-toggle change-pw-nav-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+          <li class="dropdown nav-form-item-dropdown change-pw-dropdown hide">
+            <a href="#" class="dropdown-toggle nav-form-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><div class="form-area">
                 <form id="change-pw-form" class="">
@@ -68,6 +68,60 @@
           <li><button id="sign-out-btn" type="button" class="btn btn-default btn-line nav-sign-out-btn hide">Sign Out</button></li>
 
         </ul>
+
+        <ul class="nav navbar-nav navbar-right navbar-sign-up">
+          <li class="dropdown nav-form-item-dropdown sign-up-dropdown">
+            <a href="#" class="dropdown-toggle nav-form-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><div class="form-area">
+                <form id="sign-up-form" class="">
+                  <div class="form-group">
+                    <label for="email-signup">Email</label>
+                    <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-signup">Password</label>
+                    <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+                  </div>
+                  <div class="form-group form-group-inline">
+                    <label for="pwd-conf-signup">Confirm password</label>
+                    <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
+                    <span id="sign-up-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn-line">Sign Up</button>
+                </form>
+                <!-- sign up form alert container  -->
+                <div class="sign-up-alert-container"></div>
+              </div></li>
+              <!-- end of form-area -->
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right navbar-sign-in">
+          <li class="dropdown nav-form-item-dropdown sign-in-dropdown">
+            <a href="#" class="dropdown-toggle nav-form-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><div class="form-area">
+                <form id="sign-in-form" class="">
+                  <div class="form-group">
+                    <label for="email-signin">Email</label>
+                    <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-signin">Password</label>
+                    <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+                    <span id="sign-in-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn-line">Sign In</button>
+                </form>
+                <!-- sign in form alert container  -->
+                <div class="sign-in-alert-container"></div>
+              </div></li>
+              <!-- end of form-area -->
+            </ul>
+          </li>
+        </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -83,66 +137,7 @@
   <div><h5 class="answer-stat"></h5></div>
 
 
-  <div class="sign-in-sign-up-forms col-sm-12">
-    <!-- tabs sign up sign in  -->
-    <ul id="nav-sign-up-in" class="nav nav-tabs nav-justified on-sign-in">
-      <li class="tab-dark active"><a data-toggle="tab" href="#tabSignIn">Sign In</a></li>
-      <li class="tab-dark"><a data-toggle="tab" href="#tabSignUp">Sign Up</a></li>
-    </ul>
 
-    <div class="tab-content on-sign-in">
-
-      <div id="tabSignIn" class="tab-pane fade in active">
-        <!-- SIGN IN -->
-        <div class="form-area">
-          <form id="sign-in-form" class="">
-            <div class="form-group form-group-inline">
-              <label for="email-signin">Email</label>
-              <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
-            </div>
-            <div class="form-group form-group-inline">
-              <label for="pwd-signin">Password</label>
-              <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
-              <span id="sign-in-msg" class="ui-message"></span>
-            </div>
-            <button type="submit" class="btn-line">Sign In</button>
-          </form>
-          <!-- sign in form alert container  -->
-          <div class="sign-in-alert-container"></div>
-        </div>
-        <!-- end of form-area -->
-      </div>
-      <!-- end tabSignIn -->
-
-      <div id="tabSignUp" class="tab-pane fade">
-        <!-- SIGN UP -->
-        <div class="form-area">
-          <form id="sign-up-form" class="">
-            <div class="form-group form-group-inline">
-              <label for="email-signup">Email</label>
-              <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
-            </div>
-            <div class="form-group form-group-inline">
-              <label for="pwd-signup">Password</label>
-              <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
-            </div>
-            <div class="form-group form-group-inline">
-              <label for="pwd-conf-signup">Confirm password</label>
-              <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
-              <span id="sign-up-msg" class="ui-message"></span>
-            </div>
-            <button type="submit" class="btn-line">Sign Up</button>
-          </form>
-          <!-- sign up form alert container  -->
-          <div class="sign-up-alert-container"></div>
-        </div>
-        <!-- end of form-area -->
-      </div>
-      <!-- end tabSignUp -->
-    </div>
-    <!-- end tab-content -->
-  </div>
-  <!-- end of sign-in-sign-up-forms -->
 
   <div class="col-sm-12 change-pw-sign-out hide">
 

@@ -75,7 +75,7 @@ const signInSuccess = function (signInResponse) {
   $('.sign-in-sign-up-forms').toggleClass('hide')
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
-  $('.change-pw-dropdown').toggleClass('hide')
+  $('.nav-form-item-dropdown').toggleClass('hide')
   $('.nav-sign-out-btn').toggleClass('hide')
   clearForms()
   locEvents.onGetLocations()
@@ -92,7 +92,7 @@ const signInError = function () {
 const changePWSuccess = function () {
   clearAlerts()
   createAlert('.full-width-alert-container', 'success', 'Success', `Password updated for: ${store.user.email}`, 3000)
-  $('#change-pw-btn').dropdown('toggle')
+  // $('#change-pw-btn').dropdown('toggle')
   clearForms()
 }
 // Change PW error
@@ -116,7 +116,7 @@ const signOutSuccess = function () {
   $('.change-pw-sign-out').toggleClass('hide')
   $('.location-modules').toggleClass('hide')
   $('#locations-table-body').html('')
-  $('.change-pw-dropdown').toggleClass('hide')
+  $('.nav-form-item-dropdown').toggleClass('hide')
   $('.nav-sign-out-btn').toggleClass('hide')
   // $('.full-width-alert-container').toggleClass('landing-view-only')
   console.log('store after signOutSuccess is ', store)

@@ -7,6 +7,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 // on Sign Up
 const onSignUp = function (event) {
   event.preventDefault()
+  // $('.sign-up-dropdown').dropdown('toggle')
   const data = getFormFields(event.target)
   // check if passwords matches
   if (data.credentials.password === data.credentials.password_confirmation) {
@@ -25,6 +26,7 @@ const onSignUp = function (event) {
 // on Sign In
 const onSignIn = function (event) {
   event.preventDefault()
+  // $('.sign-in-dropdown').dropdown('toggle')
   const data = getFormFields(event.target)
   // api
   authApi.signIn(data)
@@ -35,7 +37,8 @@ const onSignIn = function (event) {
 // on Change PW
 const onChangePW = function (event) {
   event.preventDefault()
-  $('.change-pw-dropdown').dropdown('toggle')
+  // $('.change-pw-dropdown').dropdown('toggle')
+  $('.change-pw-dropdown').removeClass('open')
   const data = getFormFields(event.target)
   if (data.passwords.old !== data.passwords.new) {
   } else {
