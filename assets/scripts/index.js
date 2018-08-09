@@ -5,6 +5,7 @@
 const authEvents = require('./auth/events')
 const locEvents = require('./locations/events')
 const fEvents = require('./forecasts/events')
+const coorEvents = require('./coordinates/events')
 
 $(() => {
   // user auth forms/button
@@ -14,12 +15,13 @@ $(() => {
   $('#sign-out-btn').on('click', authEvents.onSignOut)
 
   // locations
-  $('#get-locations-btn').on('click', locEvents.onGetLocations)
+  // $('#get-locations-btn').on('click', locEvents.onGetLocations)
   $('#create-location-form').on('submit', locEvents.onCreateLocation)
   $('#location-list').on('click', '.delete-btn', locEvents.onConfirmDeleteLocation)
   $('#deleteModal').on('click', '#confirm-delete-btn', locEvents.onDeleteLocation)
   $('#location-list').on('click', '.update-btn', locEvents.onConfirmUpdateLocation)
   $('#updateModal').on('click', '#confirm-update-btn', locEvents.onUpdateLocation)
+  $('#find-by-name-form').on('submit', coorEvents.onFindByName)
 
   // forecasts
   $('#check-bos-btn').on('click', fEvents.onGetBostonForecast)

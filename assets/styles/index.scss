@@ -38,6 +38,11 @@ label {
   padding: 20px;
 }
 
+.answer-container {
+  min-height: 40px;
+  clear: both;
+}
+
 .btn-line {
   background-color: #0d0e1b;
   border-color: #85d3eb;
@@ -81,7 +86,7 @@ label {
 }
 
 .form-area {
-  padding: 30px 0;
+  padding: 15px 0;
   display: inline-block;
   min-width: 170px;
   text-align: left;
