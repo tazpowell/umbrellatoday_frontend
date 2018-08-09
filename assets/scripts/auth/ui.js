@@ -2,6 +2,7 @@
 const store = require('../store')
 const authApi = require('./api.js')
 const locEvents = require('../locations/events')
+const locUi = require('../locations/ui.js')
 
 // Clear form fields
 const clearForms = function () {
@@ -14,41 +15,25 @@ const clearAlerts = function () {
   $('.alert').html('')
 }
 
-// CREATE ALERT
-// location: full-width-alert-container
-// context: success, danger
-// msgBold: Success, Error
-// msgText: alert message to show
-// fadeTime: 3000
-const createAlert = function (location, context, msgBold, msgText, fadeTime) {
-  console.log('createAlert in locations/ui.js ran')
-  $(`${location}`).html(`<div class="alert alert-${context} role="alert">
-    <strong><span="msg-bold">${msgBold}</span></strong> <span id="msgText">${msgText}</span>
-  </div>`)
-  if (fadeTime) {
-    $(`${location} .alert-${context}`).delay(fadeTime).fadeOut()
-  }
-}
-
 // PASSWORD do not match
 const pwNotMatching = function () {
   clearAlerts()
   // createAlert params: location, context, msgBold, msgText, fadeTime
-  createAlert('.sign-up-alert-container', 'danger', 'Error', 'Passwords do not match', 3000)
+  locUi.createAlert('.sign-up-alert-container', 'danger', 'Error', 'Passwords do not match', 3000)
   clearForms()
 }
 
 // PASSWORD do not match
 const pwMatching = function () {
   clearAlerts()
-  createAlert('.full-width-alert-container', 'danger', 'Error', 'New password must be different than old', 3000)
+  locUi.createAlert('.full-width-alert-container', 'danger', 'Error', 'New password must be different than old', 3000)
   clearForms()
 }
 
 // SIGN UP error
 const signUpError = function () {
   clearAlerts()
-  createAlert('.sign-up-alert-container', 'danger', 'Error', 'Sign up was unsuccessful', 3000)
+  locUi.createAlert('.sign-up-alert-container', 'danger', 'Error', 'Sign up was unsuccessful', 3000)
   clearForms()
 }
 
@@ -79,33 +64,34 @@ const signInSuccess = function (signInResponse) {
   $('.nav-sign-out-btn').toggleClass('hide')
   clearForms()
   locEvents.onGetLocations()
+  locUi.createAlert('.full-width-alert-container', 'success', 'Success!', 'You are signed in. Scroll down to save your locations', 5000)
 }
 
 // SIGN IN error
 const signInError = function () {
   clearAlerts()
-  createAlert('.sign-in-alert-container', 'danger', 'Error', 'Sign in was unsuccessful', 3000)
+  locUi.createAlert('.sign-in-alert-container', 'danger', 'Error', 'Sign in was unsuccessful', 3000)
   clearForms()
 }
 
 // Change PW success
 const changePWSuccess = function () {
   clearAlerts()
-  createAlert('.full-width-alert-container', 'success', 'Success', `Password updated for: ${store.user.email}`, 3000)
+  locUi.createAlert('.full-width-alert-container', 'success', 'Success', `Password updated for: ${store.user.email}`, 3000)
   // $('#change-pw-btn').dropdown('toggle')
   clearForms()
 }
 // Change PW error
 const changePWError = function () {
   clearAlerts()
-  createAlert('.full-width-alert-container', 'danger', 'Error', 'Password change was unsuccessful', 3000)
+  locUi.createAlert('.full-width-alert-container', 'danger', 'Error', 'Password change was unsuccessful', 3000)
   clearForms()
 }
 
 // SIGN OUT success
 const signOutSuccess = function () {
   clearAlerts()
-  createAlert('.full-width-alert-container', 'success', '', 'Signed out successfully', 3000)
+  locUi.createAlert('.full-width-alert-container', 'success', '', 'Signed out successfully', 3000)
   delete store.user
   delete store.locations
   delete store.delete
@@ -125,7 +111,7 @@ const signOutSuccess = function () {
 // SIGN OUT error
 const signOutError = function () {
   clearAlerts()
-  createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to sign out', 3000)
+  locUi.createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to sign out', 3000)
   clearForms()
 }
 

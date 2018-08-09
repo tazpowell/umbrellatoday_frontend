@@ -1,25 +1,10 @@
 'use strict'
 const store = require('../store')
+const locUi = require('../locations/ui.js')
 
 // Clear form fields
 const clearForms = function () {
   $('.form-area input').val('')
-}
-
-// create full width alert
-// location: full-width-alert-container
-// context: success, danger
-// msgBold: Success, Error
-// msgText: alert message to show
-// fadeTime: 3000
-const createAlert = function (location, context, msgBold, msgText, fadeTime) {
-  console.log('createAlert in locations/ui.js ran')
-  $(`${location}`).html(`<div class="alert alert-${context} role="alert">
-    <strong><span="msg-bold">${msgBold}</span></strong> <span id="msgText">${msgText}</span>
-  </div>`)
-  if (fadeTime) {
-    $(`${location} .alert-${context}`).delay(fadeTime).fadeOut()
-  }
 }
 
 // reset answer
@@ -44,6 +29,7 @@ const checkPrecipProbability = function (data) {
 }
 
 const getBostonSuccess = function (response) {
+  clearForms()
   resetAnswer()
   $('.answer-location').html('In Boston')
   $('.answer-stat').html('Precipitation probability is ' + response.daily.data[0].precipProbability)
@@ -67,8 +53,9 @@ const getBostonSuccess = function (response) {
 }
 
 const getBostonError = function (error) {
+  clearForms()
   console.log('getBostonError error is ', error)
-  createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to get Boston forecast', 3000)
+  locUi.createAlert('.full-width-alert-container', 'danger', 'Error', 'Failed to get Boston forecast', 3000)
 }
 
 const getForecastSuccess = function (response) {
@@ -91,8 +78,9 @@ const getForecastSuccess = function (response) {
 }
 
 const getForecastError = function (error) {
+  clearForms()
   console.log('getForecastError error is ', error)
-  createAlert('.full-width-alert-container', 'danger', 'Error', error, 3000)
+  locUi.createAlert('.full-width-alert-container', 'danger', 'Error', error, 3000)
 }
 
 module.exports = {

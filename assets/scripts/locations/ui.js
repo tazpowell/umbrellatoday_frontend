@@ -73,9 +73,7 @@ const deleteSuccess = function () {
 
 const deleteError = function (error) {
   console.log('deleteError error is ', error)
-  $('.full-width-alert-container').html('<div class="alert alert-danger alert-delete-error">' +
-      'Delete unsuccessful </div>')
-  $('.alert-delete-error').delay(3000).fadeOut()
+  createAlert('.full-width-alert-container', 'danger', 'Error', 'Delete unsuccessful', 3000)
 }
 
 const populateUpdateModal = function (location) {
@@ -111,5 +109,6 @@ module.exports = {
   deleteError,
   populateUpdateModal,
   updateSuccess,
-  updateError
+  updateError,
+  createAlert
 }

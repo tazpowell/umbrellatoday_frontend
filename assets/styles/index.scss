@@ -34,12 +34,18 @@ label {
   letter-spacing: 1px;
 }
 
+strong {
+  font-weight: 700;
+  font-size: 14pt;
+  letter-spacing: 0.5pt;
+}
+
 .answer {
   padding: 20px;
 }
 
 .answer-container {
-  min-height: 40px;
+  min-height: 26px;
   clear: both;
 }
 
@@ -106,13 +112,13 @@ label {
 }
 
 .full-width-alert-container {
-  height: 40px;
-  margin-top: 50px;
+  height: 60px;
+  // margin-top: 50px;
 }
 
 .location-list-container {
   margin: auto;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .location-list-title {
@@ -246,7 +252,7 @@ label {
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-  background-color: #313038;
+  background-color: #1B1A23;
 }
 
 .title-content {
@@ -254,6 +260,7 @@ label {
   background-repeat: no-repeat;
   background-position: center;
   height: 60vh;
+  margin-top: 35px;
 }
 
 .title-bg-null {
