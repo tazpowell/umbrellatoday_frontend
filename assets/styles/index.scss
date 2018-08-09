@@ -122,6 +122,10 @@ label {
   border-color: #0d0e1b;
 }
 
+.navbar-default .navbar-nav > li > a {
+  color: #85d3eb;
+}
+
 .navbar-default .navbar-nav > .open > a {
   background-color: #313038;
   color: #85d3eb;
@@ -239,4 +243,65 @@ label {
 
 .title-bg-yes {
   background-image: url(../../public/umbrellatoday_yes.png);
+}
+
+@media (max-width: 768px) {
+  .check-boston-btn {
+    float: none;
+  }
+
+  .location-list-container {
+    padding: 0 5px;
+  }
+
+  .navbar-darksky {
+    float: none;
+  }
+
+  .navbar-collapse {
+    background-color: #313038;
+  }
+
+  .navbar-signout-changepw {
+    position: relative;
+    right: auto;
+    top: auto;
+  }
+
+  .navbar-fixed-top .navbar-collapse {
+    max-height: 100vh;
+  }
+
+  .navbar-default .navbar-toggle:hover {
+    background-color: #313038;
+  }
+
+  .navbar-default .navbar-toggle:focus {
+    background-color: #313038;
+  }
+
+  .nav-tabs.nav-justified > .active > a {
+    background-color: #313038;
+    border-color: #85d3eb;
+    border-bottom-color: #85d3eb;
+  }
+
+  .nav-tabs.nav-justified > .active > a:hover {
+    background-color: #313038;
+    border-color: #85d3eb;
+    border-bottom-color: #85d3eb;
+  }
+
+  .nav-tabs.nav-justified > li > a {
+    border-color: #313038;
+  }
+
+  .table-responsive {
+    border-color: #0d0e1b;
+  }
+
+  .title-content {
+    height: 40vh;
+  }
+
 }

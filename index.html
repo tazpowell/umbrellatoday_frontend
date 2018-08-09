@@ -17,22 +17,34 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <p class="navbar-darksky"><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></p>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#umbrella-navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div><!-- / navbar-header  -->
+
+      <div class="collapse navbar-collapse" id="umbrella-navbar-collapse">
+        <ul class="nav navbar-nav">
+
+        <li><p class="navbar-darksky"><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></p></li>
 
 
         <!-- CHECK BOSTON -->
         <!-- <div> -->
-          <button id="check-bos-btn" type="button" class="btn btn-default btn-line check-boston-btn">Check Boston</button>
+        <li><button id="check-bos-btn" type="button" class="btn btn-default btn-line check-boston-btn">Check Boston</button></li>
         <!-- </div> -->
 
         <!--SIGNED IN AS -->
-        <p class="navbar-text"></p>
+        <li><p class="navbar-text"></p></li>
+        </ul>
 
         <ul class="nav navbar-nav navbar-right navbar-signout-changepw">
           <li class="dropdown change-pw-dropdown hide">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <div class="form-area">
+              <li><div class="form-area">
                 <form id="change-pw-form" class="">
                   <div class="form-group">
                     <label for="old-pw-change">Old password</label>
@@ -47,7 +59,7 @@
                 </form>
                 <!-- change pw form alert container  -->
                 <div class="change-pw-alert-container"></div>
-              </div>
+              </div></li>
               <!-- end of form-area -->
             </ul>
           </li>
@@ -56,11 +68,12 @@
           <li><button id="sign-out-btn" type="button" class="btn btn-default btn-line nav-sign-out-btn hide">Sign Out</button></li>
 
         </ul>
-      </div>
-    </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
+
   <!--full width alert container  -->
-  <div class="full-width-alert-container"></div>
+  <div class="col-sm-12 full-width-alert-container"></div>
   <div class='col-sm-12 title-content title-bg-null'>
     <!-- <h1>Umbrella Today?</h1> -->
     <!-- <h2><span class='answer answer-yes hide'>YES</span><span class='answer answer-no hide'>NO</span></h2> -->
@@ -177,7 +190,7 @@
 
   <div class="col-sm-12 col-md-9 location-modules hide">
     <!-- LOCATIONS LIST -->
-    <div id="location-list" class="location-list-container">
+    <div id="location-list" class="table-responsive location-list-container">
       <h3 class="location-list-title">Locations</h3>
       <table class="table table-striped">
         <thead>
