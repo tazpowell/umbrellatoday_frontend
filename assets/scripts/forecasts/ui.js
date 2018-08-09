@@ -29,6 +29,8 @@ const checkPrecipProbability = function (data) {
 
 const getBostonSuccess = function (response) {
   resetAnswer()
+  $('.answer-location').html('In Boston')
+  $('.answer-stat').html('Precipitation probability is ' + response.daily.data[0].precipProbability)
   console.log('getBostonSuccess response is ', response)
   const weekArray = response.daily.data
   console.log('weekArray[0] is ', weekArray[0])
@@ -55,7 +57,7 @@ const getBostonError = function (error) {
 const getForecastSuccess = function (response) {
   resetAnswer()
   $('.answer-location').html('In ' + store.query.name)
-  // debugger
+  $('.answer-stat').html('Precipitation probability is ' + response.daily.data[0].precipProbability)
   const weekArray = response.daily.data
   console.log('weekArray[0] is ', weekArray[0])
   // loop through weekArray

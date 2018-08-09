@@ -20,12 +20,7 @@ const onGetLocationForecast = function (event) {
   data.location = store.locations.find(x => x.id === locationID)
   store.query = store.locations.find(x => x.id === locationID)
   console.log('store.query is ', store.query)
-  // delete data.location.id
-  // delete data.location.name
-  // delete data.location.default
-  // delete data.location.user
   console.log('onGetLocationForecast data is ', data)
-  // debugger
   // api
   fApi.getLocationForecast(data)
     .then(fUi.getForecastSuccess)

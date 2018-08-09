@@ -11,7 +11,7 @@ const clearUpdateModal = function () {
   $('#update-location-name').val('')
   $('#update-location-lat').val('')
   $('#update-location-long').val('')
-  document.getElementById('update-location-default').checked = false
+  // document.getElementById('update-location-default').checked = false
 }
 
 // create full width alert
@@ -84,9 +84,9 @@ const populateUpdateModal = function (location) {
   $('#update-location-name').val(location.name)
   $('#update-location-lat').val(location.lat)
   $('#update-location-long').val(location.long)
-  if (location.default === true) {
-    document.getElementById('update-location-default').checked = true
-  }
+  // if (location.default === true) {
+  //   document.getElementById('update-location-default').checked = true
+  // }
 }
 
 const updateSuccess = function () {

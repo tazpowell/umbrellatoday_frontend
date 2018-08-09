@@ -42,7 +42,7 @@
 
         <ul class="nav navbar-nav navbar-right navbar-signout-changepw">
           <li class="dropdown change-pw-dropdown hide">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle change-pw-nav-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><div class="form-area">
                 <form id="change-pw-form" class="">
@@ -80,9 +80,7 @@
   </div>
 
   <div><h3 class="answer-location"></h3></div>
-
-
-
+  <div><h5 class="answer-stat"></h5></div>
 
 
   <div class="sign-in-sign-up-forms col-sm-12">
@@ -170,10 +168,9 @@
               <label for="location-long">Longitude</label>
               <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" required>
             </div>
-            <div class="checkbox">
-
+            <!-- <div class="checkbox">
               <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-default btn-line">Add</button>
           </form>
@@ -198,7 +195,6 @@
             <th>Name</th>
             <th>Latitude</th>
             <th>Longitude</th>
-            <th>Default</th>
             <th></th>
             <th></th>
             <th></th>
@@ -254,9 +250,9 @@
                 <label for="update-location-long">Longitude</label>
                 <input id="update-location-long" class="form-control" name="location[long]" type="text" placeholder="" required>
               </div>
-              <div class="checkbox">
+              <!-- <div class="checkbox">
                 <label><input id="update-location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
-              </div>
+              </div> -->
 
               <button type="submit" class="btn btn-default btn-line" id="confirm-update-btn" data-dismiss="modal">Update</button>
               <button type="button" class="btn btn-default btn-line" data-dismiss="modal">Cancel</button>

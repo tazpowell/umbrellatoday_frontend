@@ -62,6 +62,18 @@ label {
   height: 34px;
 }
 
+.change-pw-dropdown {
+  border: 1px solid #85d3eb;
+  border-radius: 4px;
+  height: 34px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.change-pw-nav-item {
+  padding-top: 7px;
+}
+
 .dropdown-menu {
   background-color: #313038;
   padding: 0 20px;
@@ -142,6 +154,10 @@ label {
 
 .navbar-default .navbar-nav > li > a:hover {
   color: #85d3eb;
+}
+
+.navbar-nav > li > a {
+  padding-top: 7px;
 }
 
 .nav-tabs > li > a {
