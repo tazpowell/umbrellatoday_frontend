@@ -7,7 +7,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 
 const checkCoordinates = function (response) {
   return new Promise((resolve, reject) => {
-    console.log('checkIfObjObj response is ', response)
+    // console.log('checkIfObjObj response is ', response)
     // debugger
     if (response.location.lat === '0.00000') {
       const error = 'Invalid search value. Please try again. (coor)'
