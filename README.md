@@ -5,7 +5,7 @@
 
 ## Front-end
 This repo is the front-end for my UmbrellaToday web app.
-It uses weather data from DarkSky's API to determine if you need to bring an umbrella with you today. Lat/long data for a location is obtained though forward geocoding via https://geocode.xyz/'s API.
+It uses weather data from [DarkSky's API](https://darksky.net/dev/docs) to determine if you need to bring an umbrella with you today. Lat/long data for a location is obtained though forward geocoding via https://geocode.xyz/ API.
 
 Unregistered users can look up weather info based on location name or lat/long values.
 Registered users can add locations into a saved list if they provide location name, latitude, and longitude values.
