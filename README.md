@@ -41,7 +41,7 @@ I'm also interested in exploring HTMLCanvas to possibilty add some animated rain
 ## Wireframe and user stories
 [Wireframe](https://drive.google.com/file/d/1F38nbApVS5fTnz7JVl_s25IVaDhRoody/view?usp=sharing)
 
-V1
+### User Stories:
 ### As an unregisterd user, I want to:
 - sign up with email and password
 - be told when my passwords do not match
