@@ -6,7 +6,6 @@ const store = require('../store')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetBostonForecast = function () {
-  // console.log('onGetBostonForecast ran')
   // api
   fApi.getBostonForecast()
     .then(fUi.getBostonSuccess)
@@ -33,7 +32,7 @@ const onFindByLatLong = function () {
   event.preventDefault()
   const data = getFormFields(event.target)
   // console.log('onFindByLatLong data is ', data)
-  locEvents.validateFormData(data)
+  locEvents.validateLatLong(data)
     // .then((data) => { console.log('data is ', data) })
     .then(() => {
       store.query = {}

@@ -107,5 +107,6 @@ module.exports = {
   populateUpdateModal,
   updateSuccess,
   updateError,
-  createAlert
+  createAlert,
+  clearForms
 }

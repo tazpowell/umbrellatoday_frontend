@@ -35,18 +35,15 @@ const getBostonSuccess = function (response) {
   $('.answer-stat').html('Precipitation probability is ' + response.daily.data[0].precipProbability)
   // console.log('getBostonSuccess response is ', response)
   const weekArray = response.daily.data
-  // console.log('weekArray[0] is ', weekArray[0])
   // loop through weekArray
   // run checkPrecipProbability on each day
   if (checkPrecipProbability(weekArray[0])) {
     // if any return true, show YES
     // console.log('answer should be yes')
-    // $('.answer-yes').removeClass('hide')
     $('.title-content').removeClass('title-bg-null')
     $('.title-content').addClass('title-bg-yes')
   } else {
     // console.log('answer should be no')
-    // $('.answer-no').removeClass('hide')
     $('.title-content').removeClass('title-bg-null')
     $('.title-content').addClass('title-bg-no')
   }
@@ -64,7 +61,6 @@ const getForecastSuccess = function (response) {
   $('.answer-location').html('In ' + store.query.name)
   $('.answer-stat').html('Precipitation probability is ' + response.daily.data[0].precipProbability)
   const weekArray = response.daily.data
-  // console.log('weekArray[0] is ', weekArray[0])
   // loop through weekArray
   // run checkPrecipProbability on each day
   if (checkPrecipProbability(weekArray[0])) {

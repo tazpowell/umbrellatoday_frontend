@@ -4,26 +4,58 @@ const locApi = require('./api.js')
 const locUi = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const validateFormData = function (data) {
+const countDecimals = function (num) {
+  // if rounding number downward does not equal number
+  // then return length of string after .
+  if (Math.floor(num) !== num) {
+    return num.toString().split('.')[1].length || 0
+  }
+  return 0
+}
+
+const validateLatLong = function (data) {
   return new Promise((resolve, reject) => {
-    if (!$.isNumeric(data.location.lat)) {
-      // console.log('lat is not a number')
+    let lat = data.location.lat
+    let long = data.location.long
+
+    // trim empty spaces in lat/long
+    lat = lat.replace(/\s+/g, '')
+    lat = parseFloat(lat)
+    long = long.replace(/\s+/g, '')
+    long = parseFloat(long)
+
+    // check if values are numeric
+    if (!$.isNumeric(lat)) {
       const error = 'Latitude value is not valid'
       reject(error)
-    } else if (!$.isNumeric(data.location.long)) {
-      // console.log('long is not a number')
+    } else if (!$.isNumeric(long)) {
       const error = 'Longitude value is not valid'
       reject(error)
     }
-    // trim empty spaces in lat/long
-    data.location.lat = data.location.lat.replace(/\s+/g, '')
-    data.location.long = data.location.long.replace(/\s+/g, '')
+    // check if lat/long has too many decimal points
+    if (countDecimals(lat) >= 6) {
+      lat = lat.toFixed(6)
+      lat = parseFloat(lat)
+    } else if (countDecimals(long) >= 6) {
+      long = long.toFixed(6)
+      long = parseFloat(long)
+    }
+    // check if lat/long is too small/large
+    if (parseInt(lat) > 90 || parseInt(lat) < -90) {
+      const error = 'Latitude value is not valid (90)'
+      reject(error)
+    } else if (parseInt(long) > 180 || parseInt(long) < -180) {
+      const error = 'Longitude value is not valid (180)'
+      reject(error)
+    }
+    data.location.long = long
+    data.location.lat = lat
+
     resolve(data)
   })
 }
 
 const onGetLocations = function () {
-  // console.log('onGetLocations ran')
   // api
   locApi.getLocations()
     .then(locUi.getAllSuccess)
@@ -31,7 +63,6 @@ const onGetLocations = function () {
 }
 
 const onCreateLocation = function () {
-  // console.log('onCreateLocation ran')
   event.preventDefault()
   const data = getFormFields(event.target)
   // if (!('default' in data.location)) {
@@ -39,7 +70,7 @@ const onCreateLocation = function () {
   // } else {
   //   data.location.default = true
   // }
-  validateFormData(data)
+  validateLatLong(data)
     .then(locApi.createLocation)
     .then(locUi.createSuccess)
     .then(onGetLocations)
@@ -47,7 +78,6 @@ const onCreateLocation = function () {
 }
 
 const onConfirmDeleteLocation = function () {
-  // console.log('onConfirmDeleteLocation ran')
   const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
   // console.log('locationID is ', locationID)
   store.delete = locationID
@@ -57,7 +87,6 @@ const onConfirmDeleteLocation = function () {
 }
 
 const onDeleteLocation = function () {
-  // console.log('onDeleteLocation ran')
   // api
   locApi.deleteLocation(store.delete)
     .then(locUi.deleteSuccess)
@@ -66,14 +95,12 @@ const onDeleteLocation = function () {
 }
 
 const onConfirmUpdateLocation = function () {
-  // console.log('onConfirmUpdateLocation ran')
   const locationID = parseInt(event.target.parentElement.parentElement.getAttribute('data-id'))
   const locationToUpdate = store.locations.find(x => x.id === locationID)
   locUi.populateUpdateModal(locationToUpdate)
 }
 
 const onUpdateLocation = function () {
-  // console.log('onUpdateLocation ran')
   event.preventDefault()
   const data = getFormFields(event.target.parentElement)
   // if (!('default' in data.location)) {
@@ -81,7 +108,7 @@ const onUpdateLocation = function () {
   // } else {
   //   data.location.default = true
   // }
-  validateFormData(data)
+  validateLatLong(data)
     .then(locApi.updateLocation)
     .then(locUi.updateSuccess)
     .then(onGetLocations)
@@ -95,5 +122,5 @@ module.exports = {
   onDeleteLocation,
   onConfirmUpdateLocation,
   onUpdateLocation,
-  validateFormData
+  validateLatLong
 }

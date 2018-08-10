@@ -48,11 +48,11 @@
                 <form id="change-pw-form" class="">
                   <div class="form-group">
                     <label for="old-pw-change">Old password</label>
-                    <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" required>
+                    <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" maxlength="20" required>
                   </div>
                   <div class="form-group form-group-inline">
                     <label for="new-pw-change">New password</label>
-                    <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" required>
+                    <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" maxlength="20" required>
                     <span id="change-pw-msg" class="ui-message"></span>
                   </div>
                   <button type="submit" class="btn btn-default btn-line">Change Password</button>
@@ -77,15 +77,15 @@
                 <form id="sign-up-form" class="">
                   <div class="form-group">
                     <label for="email-signup">Email</label>
-                    <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+                    <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" maxlength="40" required>
                   </div>
                   <div class="form-group">
                     <label for="pwd-signup">Password</label>
-                    <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+                    <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" maxlength="20" required>
                   </div>
                   <div class="form-group form-group-inline">
                     <label for="pwd-conf-signup">Confirm password</label>
-                    <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" required>
+                    <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" maxlength="20" required>
                     <span id="sign-up-msg" class="ui-message"></span>
                   </div>
                   <button type="submit" class="btn-line">Sign Up</button>
@@ -106,11 +106,11 @@
                 <form id="sign-in-form" class="">
                   <div class="form-group">
                     <label for="email-signin">Email</label>
-                    <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" required>
+                    <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" maxlength="40" required>
                   </div>
                   <div class="form-group">
                     <label for="pwd-signin">Password</label>
-                    <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" required>
+                    <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" maxlength="40" required>
                     <span id="sign-in-msg" class="ui-message"></span>
                   </div>
                   <button type="submit" class="btn-line">Sign In</button>
@@ -154,7 +154,7 @@
           <form id="find-by-name-form" class="">
             <div class="form-group form-group-inline">
               <label for="query-name">Location Name</label>
-              <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State, Country" required>
+              <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State, Country" maxlength="40" required>
 
             </div>
             <button type="submit" class="btn-line">Check weather</button>
@@ -173,11 +173,11 @@
           <form id="find-by-latlong-form" class="">
             <div class="form-group form-group-inline">
               <label for="query-lat">Latitude</label>
-              <input id="query-lat" class="form-control" name="location[lat]" type="text" placeholder="42.358430" required>
+              <input id="query-lat" class="form-control" name="location[lat]" type="text" placeholder="42.358430" maxlength="12" required>
             </div>
             <div class="form-group form-group-inline">
               <label for="query-long">Longitude</label>
-              <input id="query-long" class="form-control" name="location[long]" type="text" placeholder="-71.059770" required>
+              <input id="query-long" class="form-control" name="location[long]" type="text" placeholder="-71.059770" maxlength="12" required>
             </div>
             <button type="submit" class="btn-line">Check weather</button>
           </form>
@@ -202,15 +202,15 @@
           <form id="create-location-form" class="">
             <div class="form-group">
               <label for="location-name">Location Name</label>
-              <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" required>
+              <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" maxlength="40" required>
             </div>
             <div class="form-group">
               <label for="location-lat">Latitude</label>
-              <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" required>
+              <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" maxlength="12" required>
             </div>
             <div class="form-group">
               <label for="location-long">Longitude</label>
-              <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" required>
+              <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" maxlength="12" required>
             </div>
             <!-- <div class="checkbox">
               <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
@@ -284,15 +284,15 @@
             <form id="update-location-form" class="">
               <div class="form-group">
                 <label for="update-location-name">Location Name</label>
-                <input id="update-location-name" class="form-control" name="location[name]" type="text" placeholder="" required>
+                <input id="update-location-name" class="form-control" name="location[name]" type="text" placeholder="" maxlength="40" required>
               </div>
               <div class="form-group">
                 <label for="update-location-lat">Latitude</label>
-                <input id="update-location-lat" class="form-control" name="location[lat]" type="text" placeholder="" required>
+                <input id="update-location-lat" class="form-control" name="location[lat]" type="text" placeholder="" maxlength="12" required>
               </div>
               <div class="form-group">
                 <label for="update-location-long">Longitude</label>
-                <input id="update-location-long" class="form-control" name="location[long]" type="text" placeholder="" required>
+                <input id="update-location-long" class="form-control" name="location[long]" type="text" placeholder="" maxlength="12" required>
               </div>
               <!-- <div class="checkbox">
                 <label><input id="update-location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
@@ -308,6 +308,7 @@
       </div>
     </div>
   </div>
+  <footer>Geocoding via <a href="https://geocode.xyz/">geocode.xyz</a></footer>
 
 </body>
 
