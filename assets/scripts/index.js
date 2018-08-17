@@ -23,6 +23,7 @@ $(() => {
   $('#updateModal').on('click', '#confirm-update-btn', locEvents.onUpdateLocation)
   $('#find-by-name-form').on('submit', coorEvents.onFindByName)
   $('#find-by-latlong-form').on('submit', fEvents.onFindByLatLong)
+  $('#geo-locate-btn').on('click', coorEvents.onFindUserPosition)
 
   // forecasts
   $('#check-bos-btn').on('click', fEvents.onGetBostonForecast)

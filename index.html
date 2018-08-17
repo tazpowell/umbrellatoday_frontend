@@ -146,13 +146,24 @@
   <div class="location-lookup-forms col-sm-12">
     <!-- tabs sign up sign in  -->
     <ul id="nav-lookup" class="nav nav-tabs nav-justified on-sign-in">
-      <li class="tab-dark active"><a data-toggle="tab" href="#tabFindByName">Find by Name</a></li>
+      <li class="tab-dark active"><a data-toggle="tab" href="#tabFindByCurrentLocation">Find by my location</a></li>
+      <li class="tab-dark "><a data-toggle="tab" href="#tabFindByName">Find by Name</a></li>
       <li class="tab-dark"><a data-toggle="tab" href="#tabFindByLatLong">Find by Coordinates</a></li>
     </ul>
 
     <div class="tab-content on-sign-in">
 
-      <div id="tabFindByName" class="tab-pane fade in active">
+      <div id="tabFindByCurrentLocation" class="tab-pane fade in active">
+        <!-- FIND BY GEOLOCATION -->
+        <div class="form-area">
+          <button id="geo-locate-btn" type="button" class="btn-line">Check my current location</button>
+          <div class="find-by-current-location-alert-container"></div>
+        </div>
+        <!-- end of form-area -->
+      </div>
+      <!-- end tabFindByName -->
+
+      <div id="tabFindByName" class="tab-pane fade">
         <!-- FIND BY NAME -->
         <div class="form-area">
           <form id="find-by-name-form" class="">

@@ -17,7 +17,7 @@ const validateLatLong = function (data) {
   return new Promise((resolve, reject) => {
     let lat = data.location.lat
     let long = data.location.long
-
+    // debugger
     // trim empty spaces in lat/long
     lat = lat.replace(/\s+/g, '')
     lat = parseFloat(lat)
