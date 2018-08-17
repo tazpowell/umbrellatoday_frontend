@@ -289,6 +289,10 @@ footer a {
     float: none;
   }
 
+  .full-width-alert-container {
+    height: auto;
+  }
+
   .navbar-nav .open .dropdown-menu {
     float: left;
   }
@@ -345,6 +349,7 @@ footer a {
 
   .title-content {
     height: 40vh;
+    margin-top: 40px;
   }
 
 }
