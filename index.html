@@ -143,7 +143,7 @@
     <!-- tabs sign up sign in  -->
     <ul id="nav-lookup" class="nav nav-tabs nav-justified on-sign-in">
       <li class="tab-dark active"><a data-toggle="tab" href="#tabFindByName">Find by Name</a></li>
-      <li class="tab-dark"><a data-toggle="tab" href="#tabFindByLatLong">Find by Lat/Long</a></li>
+      <li class="tab-dark"><a data-toggle="tab" href="#tabFindByLatLong">Find by Coordinates</a></li>
     </ul>
 
     <div class="tab-content on-sign-in">
@@ -173,11 +173,11 @@
           <form id="find-by-latlong-form" class="">
             <div class="form-group form-group-inline">
               <label for="query-lat">Latitude</label>
-              <input id="query-lat" class="form-control" name="location[lat]" type="text" placeholder="42.358430" required>
+              <input id="query-lat" class="form-control" name="location[lat]" type="text" placeholder="ex. 42.358430" required>
             </div>
             <div class="form-group form-group-inline">
               <label for="query-long">Longitude</label>
-              <input id="query-long" class="form-control" name="location[long]" type="text" placeholder="-71.059770" required>
+              <input id="query-long" class="form-control" name="location[long]" type="text" placeholder="ex. -71.059770" required>
             </div>
             <button type="submit" class="btn-line">Check weather</button>
           </form>
