@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Umbrella Today?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Tazuko Powell">
+  <meta property="og:title" content="Umbrella Today?">
+  <meta property="og:description" content="Check by location to see if you need an umbrella today">
+  <meta property="og:image" content="https://tazukopowell.com/umbrellatoday_frontend/public/UmbrellaToday.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#umbrella-navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div><!-- / navbar-header  -->
+
+      <div class="collapse navbar-collapse" id="umbrella-navbar-collapse">
+        <ul class="nav navbar-nav">
+
+        <li><p class="navbar-darksky"><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a></p></li>
+
+
+        <!-- CHECK BOSTON -->
+        <!-- <div> -->
+        <li><button id="check-bos-btn" type="button" class="btn btn-default btn-line check-boston-btn">Check Boston</button></li>
+        <!-- </div> -->
+
+        <!--SIGNED IN AS -->
+        <li><p class="navbar-text"></p></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right navbar-signout-changepw">
+          <li class="dropdown nav-form-item-dropdown change-pw-dropdown hide">
+            <a href="#" class="dropdown-toggle nav-form-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><div class="form-area">
+                <form id="change-pw-form" class="">
+                  <div class="form-group">
+                    <label for="old-pw-change">Old password</label>
+                    <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password" maxlength="20" required>
+                  </div>
+                  <div class="form-group form-group-inline">
+                    <label for="new-pw-change">New password</label>
+                    <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password" maxlength="20" required>
+                    <span id="change-pw-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn btn-default btn-line">Change Password</button>
+                </form>
+                <!-- change pw form alert container  -->
+                <div class="change-pw-alert-container"></div>
+              </div></li>
+              <!-- end of form-area -->
+            </ul>
+          </li>
+
+          <!-- SIGN OUT -->
+          <li><button id="sign-out-btn" type="button" class="btn btn-default btn-line nav-sign-out-btn hide">Sign Out</button></li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right navbar-sign-up">
+          <li class="dropdown nav-form-item-dropdown sign-up-dropdown">
+            <a href="#" class="dropdown-toggle nav-form-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><div class="form-area">
+                <form id="sign-up-form" class="">
+                  <div class="form-group">
+                    <label for="email-signup">Email</label>
+                    <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" maxlength="40" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-signup">Password</label>
+                    <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" maxlength="20" required>
+                  </div>
+                  <div class="form-group form-group-inline">
+                    <label for="pwd-conf-signup">Confirm password</label>
+                    <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password" maxlength="20" required>
+                    <span id="sign-up-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn-line">Sign Up</button>
+                </form>
+                <!-- sign up form alert container  -->
+                <div class="sign-up-alert-container"></div>
+              </div></li>
+              <!-- end of form-area -->
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right navbar-sign-in">
+          <li class="dropdown nav-form-item-dropdown sign-in-dropdown">
+            <a href="#" class="dropdown-toggle nav-form-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><div class="form-area">
+                <form id="sign-in-form" class="">
+                  <div class="form-group">
+                    <label for="email-signin">Email</label>
+                    <input id="email-signin" class="form-control" name="credentials[email]" type="email" placeholder="Enter email" maxlength="40" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd-signin">Password</label>
+                    <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password" maxlength="40" required>
+                    <span id="sign-in-msg" class="ui-message"></span>
+                  </div>
+                  <button type="submit" class="btn-line">Sign In</button>
+                </form>
+                <!-- sign in form alert container  -->
+                <div class="sign-in-alert-container"></div>
+              </div></li>
+              <!-- end of form-area -->
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <div class='col-sm-12 title-content title-bg-null'>
+    <!-- <h1>Umbrella Today?</h1> -->
+    <!-- <h2><span class='answer answer-yes hide'>YES</span><span class='answer answer-no hide'>NO</span></h2> -->
+  </div>
+
+  <div class="answer-container"><h3 class="answer-location"> </h3></div>
+  <div class="answer-container"><h5 class="answer-stat"> </h5></div>
+
+
+  <!--full width alert container  -->
+  <div class="col-sm-12 full-width-alert-container"></div>
+
+  <div class="location-lookup-forms col-sm-12">
+    <!-- tabs sign up sign in  -->
+    <ul id="nav-lookup" class="nav nav-tabs nav-justified on-sign-in">
+      <li class="tab-dark active"><a data-toggle="tab" href="#tabFindByCurrentLocation">Find by my location</a></li>
+      <li class="tab-dark "><a data-toggle="tab" href="#tabFindByName">Find by Name</a></li>
+      <li class="tab-dark"><a data-toggle="tab" href="#tabFindByLatLong">Find by Coordinates</a></li>
+    </ul>
+
+    <div class="tab-content on-sign-in">
+
+      <div id="tabFindByCurrentLocation" class="tab-pane fade in active">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseOne">Check my current location
+              </a>
+            </h4>
+          </div>
+            <!-- FIND BY GEOLOCATION -->
+            <div id="collapseOne" class="panel-form-area panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="form-group form-group-inline">
+                <button id="geo-locate-btn" type="button" class="btn-line">Check my current location</button>
+                <div class="find-by-current-location-alert-container"></div>
+                </div>
+              </div>
+            </div>
+        <!-- end of form-area -->
+        </div>
+        <!-- end of panel panel-default  -->
+      </div>
+      <!-- end tabFindByName -->
+
+      <div id="tabFindByName" class="tab-pane fade in">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseTwo">Find by Name
+              </a>
+            </h4>
+          </div>
+        <!-- FIND BY NAME -->
+        <div id="collapseTwo" class="panel-form-area panel-collapse collapse">
+          <div class="panel-body">
+            <form id="find-by-name-form" >
+              <div class="form-group form-group-inline">
+                <label for="query-region">Location Region</label>
+                <select id="query-region" class="form-control" name="query[region]"required>
+                  <option value="US,CA,MX">North America</option>
+                  <option value="CentralAmerica">Central America</option>
+                  <option value="SouthAmerica">South America</option>
+                  <option value="Caribbean">Caribbean</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Asia">Asia / Middle East</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Oceania">Oceania</option>
+                </select>
+              </div>
+              <div class="form-group form-group-inline">
+                <label for="query-country">Location Country</label>
+                <select id="query-country" class="form-control" name="query[country]">
+                </select>
+              </div>
+              <div class="form-group form-group-inline">
+
+                <label for="query-name">Location Name</label>
+                <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State" maxlength="40" required>
+              </div>
+              <button type="submit" class="btn-line">Check weather</button>
+              <p class="query-name-p">Specify city, and state for best results</p>
+            </form>
+            <!-- find by name form alert container  -->
+            <div class="find-by-name-alert-container"></div>
+          </div>
+        </div>
+        <!-- end of form-area -->
+      </div>
+      </div>
+      <!-- end tabFindByName -->
+
+      <div id="tabFindByLatLong" class="tab-pane fade in">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseThree">Find by Coordinates
+              </a>
+            </h4>
+          </div>
+        <!-- FIND BY LAT LONG -->
+        <div id="collapseThree" class="panel-form-area panel-collapse collapse">
+          <div class="panel-body">
+          <form id="find-by-latlong-form" class="">
+            <div class="form-group form-group-inline">
+              <label for="query-lat">Latitude</label>
+              <input id="query-lat" class="form-control" name="location[lat]" type="text" placeholder="ex. 42.358430" maxlength="12" required>
+            </div>
+            <div class="form-group form-group-inline">
+              <label for="query-long">Longitude</label>
+              <input id="query-long" class="form-control" name="location[long]" type="text" placeholder="ex. -71.059770" maxlength="12" required>
+            </div>
+            <button type="submit" class="btn-line">Check weather</button>
+          </form>
+          <!-- find by lat long form alert container  -->
+          <div class="find-by-latlong-alert-container"></div>
+        </div>
+        </div>
+        <!-- end of form-area -->
+        </div>
+      </div>
+      <!-- end tabFindByLatLong -->
+
+    </div>
+    <!-- end tab-content -->
+  </div>
+  <!-- end of location-lookup-forms-forms -->
+
+
+
+  <div class="col-sm-12 col-md-3 location-modules hide">
+
+      <!-- CREATE LOCATION -->
+        <div class="form-area">
+          <h3 class="location-list-title">Add New</h3>
+          <form id="create-location-form" class="">
+            <div class="form-group">
+              <label for="location-name">Location Name</label>
+              <input id="location-name" class="form-control" name="location[name]" type="text" placeholder="Location name" maxlength="40" required>
+            </div>
+            <div class="form-group">
+              <label for="location-lat">Latitude</label>
+              <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="ex. 42.364506" maxlength="12" required>
+            </div>
+            <div class="form-group">
+              <label for="location-long">Longitude</label>
+              <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="ex. -71.038887" maxlength="12" required>
+            </div>
+            <!-- <div class="checkbox">
+              <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
+            </div> -->
+
+            <button type="submit" class="btn btn-default btn-line">Add</button>
+          </form>
+          <!-- create location form alert container  -->
+          <div class="add-location-alert-container"></div>
+        </div>
+        <!-- end of form-area -->
+
+      <!-- GET LOCATIONS -->
+      <!-- <div>
+        <button id="get-locations-btn" type="button" class="btn btn-default">Get Locations</button>
+      </div> -->
+    </div>
+
+  <div class="col-sm-12 col-md-9 location-modules hide">
+    <!-- LOCATIONS LIST -->
+    <div id="location-list" class="table-responsive location-list-container">
+      <h3 class="location-list-title">Locations</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id='locations-table-body'>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DELETE Modal -->
+  <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-delete-text"></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-line" data-dismiss="modal" id='confirm-delete-btn'>Delete</button>
+          <button type="button" class="btn btn-default btn-line" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPDATE Modal -->
+  <div class="modal fade" id="updateModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-update-text">Update location info</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-area">
+            <form id="update-location-form" class="">
+              <div class="form-group">
+                <label for="update-location-name">Location Name</label>
+                <input id="update-location-name" class="form-control" name="location[name]" type="text" placeholder="" maxlength="40" required>
+              </div>
+              <div class="form-group">
+                <label for="update-location-lat">Latitude</label>
+                <input id="update-location-lat" class="form-control" name="location[lat]" type="text" placeholder="" maxlength="12" required>
+              </div>
+              <div class="form-group">
+                <label for="update-location-long">Longitude</label>
+                <input id="update-location-long" class="form-control" name="location[long]" type="text" placeholder="" maxlength="12" required>
+              </div>
+              <!-- <div class="checkbox">
+                <label><input id="update-location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>
+              </div> -->
+
+              <button type="submit" class="btn btn-default btn-line" id="confirm-update-btn" data-dismiss="modal">Update</button>
+              <button type="button" class="btn btn-default btn-line" data-dismiss="modal">Cancel</button>
+            </form>
+            <!-- create location form alert container  -->
+            <div class="update-location-alert-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>Geocoding via <a href="https://geocode.xyz/">geocode.xyz</a></footer>
+
+</body>
+
+</html>
