@@ -164,8 +164,10 @@
             <!-- FIND BY GEOLOCATION -->
             <div id="collapseOne" class="panel-form-area panel-collapse collapse in">
               <div class="panel-body">
+                <div class="form-group form-group-inline">
                 <button id="geo-locate-btn" type="button" class="btn-line">Check my current location</button>
                 <div class="find-by-current-location-alert-container"></div>
+                </div>
               </div>
             </div>
         <!-- end of form-area -->
@@ -187,12 +189,30 @@
           <div class="panel-body">
             <form id="find-by-name-form" >
               <div class="form-group form-group-inline">
-                <label for="query-name">Location Name</label>
-                <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State, Country" maxlength="40" required>
+                <label for="query-region">Location Region</label>
+                <select id="query-region" class="form-control" name="query[region]"required>
+                  <option value="US,CA,MX">North America</option>
+                  <option value="CentralAmerica">Central America</option>
+                  <option value="SouthAmerica">South America</option>
+                  <option value="Caribbean">Caribbean</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Asia">Asia / Middle East</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Oceania">Oceania</option>
+                </select>
+              </div>
+              <div class="form-group form-group-inline">
+                <label for="query-country">Location Country</label>
+                <select id="query-country" class="form-control" name="query[country]">
+                </select>
+              </div>
+              <div class="form-group form-group-inline">
 
+                <label for="query-name">Location Name</label>
+                <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State" maxlength="40" required>
               </div>
               <button type="submit" class="btn-line">Check weather</button>
-              <p>Specify city, state, country for best results</p>
+              <p class="query-name-p">Specify city, and state for best results</p>
             </form>
             <!-- find by name form alert container  -->
             <div class="find-by-name-alert-container"></div>

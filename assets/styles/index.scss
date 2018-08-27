@@ -319,8 +319,20 @@ footer a {
 }
 
 @media (max-width: 768px) {
+  footer {
+    margin-top: 20px;
+  }
+
+  .query-name-p {
+    margin-top: 15px;
+  }
+
   .check-boston-btn {
     float: none;
+  }
+
+  .form-group-inline {
+    width: 80vw;
   }
 
   .form-control {

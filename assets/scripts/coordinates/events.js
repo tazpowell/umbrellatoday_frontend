@@ -45,6 +45,8 @@ const onFindByName = function (event) {
     coorUi.getCoordinatesError(error)
     return
   }
+  data.query.region = data.query.country
+  console.log('data in onFindByName is ', data)
   // api
   coorApi.getCoordinatesByName(data)
     .then(coorUi.getCoordinatesSuccess)

@@ -6,9 +6,13 @@ const authEvents = require('./auth/events')
 const locEvents = require('./locations/events')
 const fEvents = require('./forecasts/events')
 const coorEvents = require('./coordinates/events')
+const coorRegions = require('./coordinates/regions')
 
 $(() => {
   // $('#nav-lookup').tabCollapse()
+  // populate region select list
+  coorRegions.PopulateRegionList()
+  $('#query-region').on('change', coorRegions.PopulateRegionList)
 
   // user auth forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
