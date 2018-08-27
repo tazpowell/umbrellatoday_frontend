@@ -154,37 +154,66 @@
     <div class="tab-content on-sign-in">
 
       <div id="tabFindByCurrentLocation" class="tab-pane fade in active">
-        <!-- FIND BY GEOLOCATION -->
-        <div class="form-area">
-          <button id="geo-locate-btn" type="button" class="btn-line">Check my current location</button>
-          <div class="find-by-current-location-alert-container"></div>
-        </div>
-        <!-- end of form-area -->
-      </div>
-      <!-- end tabFindByName -->
-
-      <div id="tabFindByName" class="tab-pane fade">
-        <!-- FIND BY NAME -->
-        <div class="form-area">
-          <form id="find-by-name-form" class="">
-            <div class="form-group form-group-inline">
-              <label for="query-name">Location Name</label>
-              <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State, Country" maxlength="40" required>
-
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseOne">Check my current location
+              </a>
+            </h4>
+          </div>
+            <!-- FIND BY GEOLOCATION -->
+            <div id="collapseOne" class="panel-form-area panel-collapse collapse in">
+              <div class="panel-body">
+                <button id="geo-locate-btn" type="button" class="btn-line">Check my current location</button>
+                <div class="find-by-current-location-alert-container"></div>
+              </div>
             </div>
-            <button type="submit" class="btn-line">Check weather</button>
-            <p>Specify city, state, country for best results</p>
-          </form>
-          <!-- find by name form alert container  -->
-          <div class="find-by-name-alert-container"></div>
-        </div>
         <!-- end of form-area -->
+        </div>
+        <!-- end of panel panel-default  -->
       </div>
       <!-- end tabFindByName -->
 
-      <div id="tabFindByLatLong" class="tab-pane fade">
+      <div id="tabFindByName" class="tab-pane fade in">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseTwo">Find by Name
+              </a>
+            </h4>
+          </div>
+        <!-- FIND BY NAME -->
+        <div id="collapseTwo" class="panel-form-area panel-collapse collapse">
+          <div class="panel-body">
+            <form id="find-by-name-form" >
+              <div class="form-group form-group-inline">
+                <label for="query-name">Location Name</label>
+                <input id="query-name" class="form-control" name="query[name]" type="text" placeholder="City, State, Country" maxlength="40" required>
+
+              </div>
+              <button type="submit" class="btn-line">Check weather</button>
+              <p>Specify city, state, country for best results</p>
+            </form>
+            <!-- find by name form alert container  -->
+            <div class="find-by-name-alert-container"></div>
+          </div>
+        </div>
+        <!-- end of form-area -->
+      </div>
+      </div>
+      <!-- end tabFindByName -->
+
+      <div id="tabFindByLatLong" class="tab-pane fade in">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent=".tab-pane" href="#collapseThree">Find by Coordinates
+              </a>
+            </h4>
+          </div>
         <!-- FIND BY LAT LONG -->
-        <div class="form-area">
+        <div id="collapseThree" class="panel-form-area panel-collapse collapse">
+          <div class="panel-body">
           <form id="find-by-latlong-form" class="">
             <div class="form-group form-group-inline">
               <label for="query-lat">Latitude</label>
@@ -199,9 +228,12 @@
           <!-- find by lat long form alert container  -->
           <div class="find-by-latlong-alert-container"></div>
         </div>
+        </div>
         <!-- end of form-area -->
+        </div>
       </div>
       <!-- end tabFindByLatLong -->
+
     </div>
     <!-- end tab-content -->
   </div>
@@ -221,11 +253,11 @@
             </div>
             <div class="form-group">
               <label for="location-lat">Latitude</label>
-              <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="42.364506" maxlength="12" required>
+              <input id="location-lat" class="form-control" name="location[lat]" type="text" placeholder="ex. 42.364506" maxlength="12" required>
             </div>
             <div class="form-group">
               <label for="location-long">Longitude</label>
-              <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="-71.038887" maxlength="12" required>
+              <input id="location-long" class="form-control" name="location[long]" type="text" placeholder="ex. -71.038887" maxlength="12" required>
             </div>
             <!-- <div class="checkbox">
               <label><input id="location-default" type="checkbox" value="true" name="location[default]">Set as default location</label>

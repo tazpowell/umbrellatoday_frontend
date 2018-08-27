@@ -107,6 +107,13 @@ footer a {
   text-align: left;
 }
 
+.panel-form-area {
+  padding: 15px 0;
+  // display: inline-block;
+  min-width: 170px;
+  // text-align: left;
+}
+
 .form-control {
   background-color: #0d0e1b;
   color: #fff;
@@ -284,9 +291,40 @@ footer a {
   background-image: url(../../public/umbrellatoday_yes.png);
 }
 
+.panel-default {
+  background-color: #0d0e1b;
+}
+
+.panel-default > .panel-heading {
+  background-color: #0d0e1b;
+}
+
+@media (min-width: 768px) {
+  .panel-heading{
+    display: none;
+  }
+
+  .panel {
+    border: none;
+    box-shadow: none;
+  }
+
+  .panel-collapse {
+    height: auto;
+
+    &.collapse {
+      display: block;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .check-boston-btn {
     float: none;
+  }
+
+  .form-control {
+    display: inline-block;
   }
 
   .full-width-alert-container {
@@ -350,6 +388,42 @@ footer a {
   .title-content {
     height: 40vh;
     margin-top: 40px;
+  }
+
+  .tab-content {
+    .tab-pane {
+      display: block;
+    }
+  }
+
+  .nav-tabs {
+    display: none;
+  }
+
+  .panel-title a {
+    color: #fff;
+    display: block;
+  }
+
+  .panel {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: -2px;
+  }
+
+  .tab-pane {
+    &:first-child {
+      .panel {
+        border-radius: 5px 5px 0 0;
+      }
+    }
+
+    &:last-child {
+      .panel {
+        border-radius: 0 0 5px 5px;
+      }
+    }
   }
 
 }

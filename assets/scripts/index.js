@@ -8,6 +8,8 @@ const fEvents = require('./forecasts/events')
 const coorEvents = require('./coordinates/events')
 
 $(() => {
+  // $('#nav-lookup').tabCollapse()
+
   // user auth forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
